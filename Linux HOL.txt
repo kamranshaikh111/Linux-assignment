@@ -1,0 +1,3504 @@
+												LINUX HANDS ON LAB
+-------------------------------------------------------------------------------------------------------------------------------
+1. Installation of Linux Distribution: * Install a Linux distribution (e.g., CentOS or REDHAT) on a virtual machine or in Cloud. 
+Ans:
+ 
+
+ 
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+2. Basic Linux Commands: * Demonstrate basic Linux commands (e.g., ls, cd, pwd, mkdir, rm, rmdir, cp, mv, cat, less, more, 
+head, tail, sort, uniq, wc, diff, sdiff, cmp, echo, date, uptime, hostname, w, hostnamectl, clear, exit, script). 
+Ans:
+
+[root@localhost /]# ls
+bin  boot  data1  data2  data3  data4  data5  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  
+tmp  usr  var
+
+[root@localhost /]# pwd
+/
+[root@localhost /]# cd
+[root@localhost ~]# pwd
+/root
+
+[root@localhost ~]# mkdir computer
+[root@localhost ~]# ll
+total 4
+-rw-------. 1 root root 1847 Nov  2 16:29 anaconda-ks.cfg
+drwxr-xr-x. 2 root root   19 Nov  6 12:20 cloud.txt
+drwxr-xr-x. 2 root root    6 Nov  6 14:11 computer
+
+[root@localhost computer]# rm net
+rm: remove regular empty file ‘net’? y
+[root@localhost computer]# ll
+total 0
+
+[root@localhost ~]# rmdir computer/
+[root@localhost ~]# ll
+total 4
+-rw-------. 1 root root 1847 Nov  2 16:29 anaconda-ks.cfg
+drwxr-xr-x. 2 root root   19 Nov  6 12:20 cloud.txt
+
+[root@localhost ~]# cat data1
+hello world
+[root@localhost ~]# cp data1 data10
+[root@localhost ~]# cat data10
+hello world
+
+[root@localhost ~]# mv data1 data9
+[root@localhost ~]# cat data9
+hello world
+
+[root@localhost ~]# cat data2
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+
+[root@localhost ~]# less data2   -------------(prints the data but by buffer to buffer if output is bigger than one buffer)
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+Hello world
+:
+[root@localhost ~]# more data2   ------------(do the same work as less but by percentage remarks)
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+Hello world.
+welcome to linux.    
+--More--(29%)
+
+[root@localhost ~]# head data2
+==========start=========
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+
+[root@localhost ~]# tail data2
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+Hello world.
+welcome to linux.
+learn, practice, execute the linux.
+
+[root@localhost ~]# cat data3
+b
+a
+d
+c
+[root@localhost ~]# sort data3
+a
+b
+c
+d
+
+[root@localhost ~]# cat data4
+a
+a
+b
+b
+[root@localhost ~]# uniq data4
+a
+b
+
+
+
+[root@localhost ~]# wc data2
+ 107  340 2349 data2
+
+[root@localhost ~]# diff data3 data4
+1d0
+< b
+3,4c2,4
+< d
+< c
+---
+> a
+> b
+> b
+
+[root@localhost ~]# sdiff data3 data4
+b                                                             <
+a                                                               a
+d                                                             | a
+c                                                             | b
+                                                              > b
+
+[root@localhost ~]# cmp data3 data4
+data3 data4 differ: byte 1, line 1
+
+[root@localhost ~]# echo welcome
+welcome
+
+[root@localhost ~]# date
+Mon Nov  6 14:37:41 IST 2023
+
+[root@localhost ~]# uptime
+ 14:37:47 up 29 min,  2 users,  load average: 0.00, 0.01, 0.05
+
+[root@localhost ~]# hostname
+localhost.localdomain
+
+[root@localhost ~]# w
+ 14:38:03 up 30 min,  2 users,  load average: 0.00, 0.01, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+root     tty1                      14:08   25:23   0.06s  0.06s -bash
+root     pts/0    desktop-q1vpuec  14:08    3.00s  0.20s  0.06s w
+
+[root@localhost ~]# hostnamectl
+   Static hostname: localhost.localdomain
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 2bc87718ef8cb44588badf50dfe74d99
+           Boot ID: b51a48606c6d4f1fb41a81ab3e7f979d
+    Virtualization: kvm
+  Operating System: CentOS Linux 7 (Core)
+       CPE OS Name: cpe:/o:centos:centos:7
+            Kernel: Linux 3.10.0-1160.el7.x86_64
+      Architecture: x86-64
+[root@localhost ~]# clear   -------(clears the buffer)
+
+[admin@localhost ~]$ pwd
+/home/admin
+[admin@localhost ~]$ exit
+logout
+[root@localhost ~]# pwd
+/root
+
+[root@localhost ~]# script       ----------(from here till the time user use exit command it will consider all Script started, 
+											file is typescript of command used inbetween in one file)
+[root@localhost cloud]# exit
+exit
+Script done, file is typescript	
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+3. Linux File System Hierarchy: * Explore the Linux file system hierarchy in Linux (e.g., /, /home, /etc, /usr, and /var).
+Ans:
+
+The Linux file system hierarchy follows a specific structure that organizes system files and directories. Understanding this 
+hierarchy is essential for effective navigation and management of the Linux operating system. Here's an overview of the main 
+directories in the Linux file system hierarchy:
+[root@localhost ~]# cd /
+[root@localhost /]# ls
+bin  boot  data1  data2  data3  data4  data5  dev  etc  home  lib  lib64  media  mnt  opt  proc  root  run  sbin  srv  sys  
+tmp  usr  var
+
+[root@localhost /]# cd /home/
+[root@localhost home]# ls
+admin 
+
+[root@localhost etc]# cd /etc/
+[root@localhost etc]# ls
+adjtime                  default                  gshadow-       login.defs                pkcs11          resolv.conf.save  sudoers.d
+aliases                  depmod.d                 gss            logrotate.conf            pki             rpc               sudo-ldap.conf
+aliases.db               dhcp                     host.conf      logrotate.d               plymouth        rpm               sysconfig
+alternatives             DIR_COLORS               hostname       lvm                       pm              rsyslog.conf      sysctl.conf
+anacrontab               DIR_COLORS.256color      hosts          machine-id                polkit-1        rsyslog.d         sysctl.d
+asound.conf              DIR_COLORS.lightbgcolor  hosts.allow    magic                     popt.d          rwtab             systemd
+audisp                   dracut.conf              hosts.deny     makedumpfile.conf.sample  postfix         rwtab.d           system-release
+
+[root@localhost etc]# cd /usr/
+[root@localhost usr]# ls
+bin  etc  games  include  lib  lib64  libexec  local  sbin  share  src  tmp
+
+[root@localhost usr]# cd /var/
+[root@localhost var]# ls
+adm  cache  crash  db  empty  games  gopher  kerberos  lib  local  lock  log  mail  nis  opt  preserve  run  spool  tmp  yp
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+4. Text Editor: * Demonstrate the use of a text editor with 8 commands (e.g., vi, vim or nano). 
+Ans:
+
+Open a File
+[root@localhost ~]# vim data6     ------(to get inside the file)
+Switch to Insert Mode:
+i    -----(to write something)
+Save Changes and Exit Insert Mode:
+Esc + :w + Enter
+Save and Quit (Write and Quit):
+Esc + :wq
+Quit Without Saving:
+Esc + !q  
+Cut (Delete) a Line:
+dd 
+Paste a Line:
+y
+Search for Text:
+/word to be searched
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+5. File Permissions and Ownership: * Demonstrate file permissions and ownership to single or all files in all directories 
+(e.g., chmod, chown, and chgrp).
+Ans:
+
+[root@localhost cloud]# ll
+total 0
+-rw-r--r--. 1 root root 0 Nov  6 15:06 stats.txt
+[root@localhost cloud]# chmod 777 stats.txt
+[root@localhost cloud]# ll
+total 0
+-rwxrwxrwx. 1 root root 0 Nov  6 15:06 stats.txt
+
+[root@localhost cloud]# ll
+total 0
+-rwxrwxrwx. 1 root root 0 Nov  6 15:06 stats.txt
+[root@localhost cloud]# chown admin stats.txt
+[root@localhost cloud]# ll
+total 0
+-rwxrwxrwx. 1 admin root 0 Nov  6 15:06 stats.txt
+
+[root@localhost cloud]# ll
+total 0
+-rwxrwxrwx. 1 admin root 0 Nov  6 15:06 stats.txt
+[root@localhost cloud]# chgrp admin stats.txt
+[root@localhost cloud]# ll
+total 0
+-rwxrwxrwx. 1 admin admin 0 Nov  6 15:06 stats.txt
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+6. Process Management: * Demonstrate process management (e.g., ps, top, kill, and nice). 
+Ans:
+
+[root@localhost cloud]# ps
+  PID TTY          TIME CMD
+ 1614 pts/0    00:00:00 bash
+ 1986 pts/0    00:00:00 ps
+
+[root@localhost cloud]# top
+top - 15:13:27 up  1:05,  2 users,  load average: 0.00, 0.01, 0.05
+Tasks: 148 total,   3 running, 145 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.2 us,  0.2 sy,  0.0 ni, 99.7 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1882084 total,  1543564 free,   195176 used,   143344 buff/cache
+KiB Swap:  1048572 total,  1048572 free,        0 used.  1537996 avail Mem
+PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+ 1051 root      20   0  574280  21548   6160 S  0.2  1.1   0:01.18 tuned
+ 1599 root      20   0  157060   6192   4696 S  0.2  0.3   0:01.77 sshd
+ 1987 root      20   0  162100   2276   1572 R  0.2  0.1   0:00.02 top
+    1 root      20   0  128132   6712   4164 S  0.0  0.4   0:02.83 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kworker/0:0H
+    6 root      20   0       0      0      0 S  0.0  0.0   0:00.18 ksoftirqd/0
+    7 root      rt   0       0      0      0 S  0.0  0.0   0:00.00 migration/0
+    8 root      20   0       0      0      0 S  0.0  0.0   0:00.00 rcu_bh
+    9 root      20   0       0      0      0 R  0.0  0.0   0:01.74 rcu_sched
+
+[root@localhost cloud]# kill
+kill: usage: kill [-s sigspec | -n signum | -sigspec] pid | jobspec ... or kill -l [sigspec]
+
+[root@localhost cloud]# nice
+0
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+7. Input/Output Redirection and Piping: * Demonstrate the use of input/output redirection and piping (e.g., >, >>,<,|,and tree).
+Ans:
+
+[root@localhost cloud]# cat abc
+Hello world
+welcome to coudethix.
+[root@localhost cloud]# cat abc > efg.txt
+[root@localhost cloud]# cat efg.txt
+Hello world
+welcome to coudethix.
+
+[root@localhost cloud]# cat xyz.txt
+bye world
+[root@localhost cloud]# cat pqr.txt
+Hello world
+welcome to coudethix.
+[root@localhost cloud]# cat xyz.txt >> pqr.txt
+[root@localhost cloud]# cat pqr.txt
+Hello world
+welcome to coudethix.
+bye world
+
+[root@localhost cloud]# cat a.txt
+cloud ethix
+[root@localhost cloud]# cat b.txt
+linux OS
+[root@localhost cloud]# cat a.txt < b.txt
+cloud ethix
+
+[root@localhost ~]# ll
+total 24
+-rw-------. 1 root root 1847 Nov  2 16:29 anaconda-ks.cfg
+drwxr-xr-x. 2 root root   50 Nov  6 15:38 cloud
+-rw-r--r--. 1 root root   14 Nov  6 14:18 data10
+-rw-r--r--. 1 root root 2349 Nov  6 14:25 data2
+-rw-r--r--. 1 root root    8 Nov  6 14:32 data3
+-rw-r--r--. 1 root root    8 Nov  6 14:34 data4
+-rw-r--r--. 1 root root    0 Nov  6 14:59 data6
+-rw-r--r--. 1 root root   14 Nov  6 14:18 data9
+[root@localhost ~]# ll |grep cloud
+drwxr-xr-x. 2 root root   50 Nov  6 15:38 cloud
+
+[root@localhost ~]# tree
+.
+├── anaconda-ks.cfg
+├── cloud
+│   ├── a.txt
+│   ├── b.txt
+│   └── typescript
+├── data10
+├── data2
+├── data3
+├── data4
+├── data6
+└── data9
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+8. Package Management: * Familiarize yourself with package management. Download and install rpm packages using rpm command. (e.g., yum, or rpm). * Use Linux box & setup local yum repository & install packages. 
+Ans:
+
+[root@localhost ~]# rpm
+RPM version 4.11.3
+Copyright (C) 1998-2002 - Red Hat, Inc.
+This program may be freely redistributed under the terms of the GNU GPL
+
+Usage: rpm [-aKfgpqVcdLilsiv?] [-a|--all] [-f|--file] [-g|--group] [-p|--package] [--pkgid] [--hdrid] [--triggeredby] [--whatrequires]
+        [--whatprovides] [--nomanifest] [-c|--configfiles] [-d|--docfiles] [-L|--licensefiles] [--dump] [-l|--list]
+        [--queryformat=QUERYFORMAT] [-s|--state] [--nofiledigest] [--nofiles] [--nodeps] [--noscript] [--allfiles] [--allmatches]
+        [--badreloc] [-e|--erase <package>+] [--excludedocs] [--excludepath=<path>] [--force] [-F|--freshen <packagefile>+] [-h|--hash]
+        [--ignorearch] [--ignoreos] [--ignoresize] [-i|--install] [--justdb] [--nodeps] [--nofiledigest] [--nocontexts] [--noorder]
+        [--noscripts] [--notriggers] [--nocollections] [--oldpackage] [--percent] [--prefix=<dir>] [--relocate=<old>=<new>]
+        [--replacefiles] [--replacepkgs] [--test] [-U|--upgrade <packagefile>+] [--reinstall=<packagefile>+] [-D|--define 'MACRO EXPR']
+        [--undefine=MACRO] [-E|--eval 'EXPR'] [--macros=<FILE:...>] [--noplugins] [--nodigest] [--nosignature] [--rcfile=<FILE:...>]
+        [-r|--root ROOT] [--dbpath=DIRECTORY] [--querytags] [--showrc] [--quiet] [-v|--verbose] [--version] [-?|--help] [--usage]
+        [--scripts] [--setperms] [--setugids] [--setcaps] [--restore] [--conflicts] [--obsoletes] [--provides] [--requires] [--info]
+        [--changelog] [--xml] [--triggers] [--last] [--dupes] [--filesbypkg] [--fileclass] [--filecolor] [--fscontext] [--fileprovide]
+        [--filerequire] [--filecaps]
+
+[root@localhost ~]# yum install zip
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.excellmedia.net
+ * extras: centos.excellmedia.net
+ * updates: centos.excellmedia.net
+Installed:
+  zip.x86_64 0:3.0-11.el7
+
+Complete!
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+9. Environment Variables and Aliases: * Explore environment variables and set aliases. 
+Ans:
+
+[root@localhost ~]# export cloud=superman
+[root@localhost ~]# echo $cloud
+superman
+
+[root@localhost ~]# alias batman=spy
+[root@localhost ~]# echo $batman
+spy
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+10. Archiving and Compression: * Demonstrate archiving and compression (e.g., zip, tar, gzip, bzip2, zcat , zless , zmore , 
+zgrep , bzcat , bzless, bzmore , bzgrep ). 
+Ans:
+
+[root@localhost cloud]# zip abc.zip compress
+  adding: compress (deflated 87%)
+[root@localhost cloud]# ll -lhrt
+total 372K
+-rw-r--r--. 1 root root 326K Nov  6 17:11 compress
+-rw-r--r--. 1 root root  44K Nov  6 17:11 abc.zip
+[root@localhost cloud]# zcat abc.zip
+The lion (Panthera leo) is a large cat of the genus Panthera native to Africa and India. It has a muscular, broad-chested 
+body; short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually dimorphic; adult male lions 
+are larger than females and have a prominent mane. It is a social species, forming groups called prides. A lion's pride
+[root@localhost cloud]# unzip abc.zip
+Archive:  abc.zip
+  inflating: compress
+[root@localhost cloud]# ll -lhrt
+total 372K
+-rw-r--r--. 1 root root 326K Nov  6 17:11 compress
+-rw-r--r--. 1 root root  44K Nov  6 17:11 abc.zip
+
+[root@localhost cloud]# gzip compress
+[root@localhost cloud]# ll
+total 88
+-rw-r--r--. 1 root root 44523 Nov  6 17:11 compress.gz
+[root@localhost cloud]# zcat compress.gz
+The lion (Panthera leo) is a large cat of the genus Panthera native to Africa and India. It has a muscular, broad-chested 
+body; short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually dimorphic; adult male lions 
+are larger than females and have a prominent mane. It is a social species, forming groups called prides. A lion's pride 
+[root@localhost cloud]# zmore compress.gz
+------> compress.gz <------
+[root@localhost cloud]# zless compress.gz
+------> compress.gz <------
+[root@localhost cloud]# gunzip compress.gz
+[root@localhost cloud]# ll
+total 372
+-rw-r--r--. 1 root root 333659 Nov  6 17:11 compress
+
+[root@localhost cloud]# bzip2 compress
+[root@localhost cloud]# ll -lhrt
+total 84K
+-rw-r--r--. 1 root root 37K Nov  6 17:11 compress.bz2
+[root@localhost cloud]# bzcat compress.bz2
+The lion (Panthera leo) is a large cat of the genus Panthera native to Africa and India. It has a muscular, broad-chested 
+body; short, rounded head; round ears; and a hairy tuft at the end of its tail. It is sexually dimorphic; adult male lions 
+are larger than females and have a prominent mane. It is a social species, forming groups called prides. A lion's pride 
+[root@localhost cloud]# bzless compress.bz2
+------> compress.bz2 <------
+[root@localhost cloud]# bzmore compress.bz2
+------> compress.bz2 <------
+[root@localhost cloud]# bunzip2 compress.bz2
+[root@localhost cloud]# ll -lhrt
+total 372K
+-rw-r--r--. 1 root root 326K Nov  6 17:11 compress
+
+[root@localhost cloud]# tar -cvf tar.tr compress decompress
+compress
+decompress
+[root@localhost cloud]# ll
+total 1364
+-rw-r--r--. 1 root root  44768 Nov  6 17:32 abc.zip
+-rw-r--r--. 1 root root 337920 Nov  6 17:19 compress
+-rw-r--r--. 1 root root 333659 Nov  6 17:18 decompress
+-rw-r--r--. 1 root root 675840 Nov  6 18:54 tar.tr
+
+[root@localhost cloud]# zless tar.tr
+------> tar.tr <------
+compress
+nd India. It has a muscular, broad-chested body; short, rounded head; round ears; and a hairy tuft at the end of its tail. 
+It is sexually dimorphic; adult male lions are larger than females and have a prominent mane. It is a social species, forming 
+groups called prides. A lion's pride consists of a few adult males, related females, and cubs. Groups of female lions usually 
+hunt together, preying mostly on large ungulates. The lion is an apex and keystone predator; although some lions scavenge 
+when opportunities occur and have been known to hunt humans, lions typically do not actively seek out and prey on humans.
+
+[root@localhost cloud]# zmore tar.tr
+------> tar.tr <------
+compress
+nd India. It has a muscular, broad-chested body; short, rounded head; round ears; and a hairy tuft at the end of its tail. 
+It is sexually dimorphic; adult male lions are larger than females and have a prominent mane. It is a social species, forming 
+groups called prides. A lion's pride consists of a few adult males, related females, and cubs. Groups of female lions usually 
+hunt together, preying mostly on large ungulates. The lion is an apex and keystone predator; although some lions scavenge 
+when opportunities occur and have been known to hunt humans, lions typically do not actively seek out and prey on humans.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+11. Service Configuration and Management:
+Configure and manage services httpd & nginx (e.g., systemctl and service ).
+Use default index.html as the home page, change the default document root of HTTP .
+Ans:
+
+----------http-------------
+ [root@localhost ~]# systemctl start httpd
+[root@localhost ~]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2023-11-15 15:38:19 IST; 18s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+ Main PID: 2283 (httpd)
+   Status: "Total requests: 0; Current requests/sec: 0; Current traffic:   0 B/sec"
+   CGroup: /system.slice/httpd.service
+           ├─2283 /usr/sbin/httpd -DFOREGROUND
+           ├─2284 /usr/sbin/httpd -DFOREGROUND
+           ├─2285 /usr/sbin/httpd -DFOREGROUND
+           ├─2286 /usr/sbin/httpd -DFOREGROUND
+           ├─2287 /usr/sbin/httpd -DFOREGROUND
+           └─2288 /usr/sbin/httpd -DFOREGROUND
+
+Nov 15 15:38:19 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Nov 15 15:38:19 localhost.localdomain httpd[2283]: AH00558: httpd: Could not reliably determine the server's fully 
+qualified domain name, using localho...s message
+Nov 15 15:38:19 localhost.localdomain systemd[1]: Started The Apache HTTP Server.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@localhost ~]# systemctl stop httpd
+[root@localhost ~]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+     Docs: man:httpd(8)
+           man:apachectl(8)
+
+Nov 15 15:38:19 localhost.localdomain systemd[1]: Starting The Apache HTTP Server...
+Nov 15 15:38:19 localhost.localdomain httpd[2283]: AH00558: httpd: Could not reliably determine the server's fully 
+qualified domain name, using localho...s message
+Nov 15 15:38:19 localhost.localdomain systemd[1]: Started The Apache HTTP Server.
+Nov 15 15:39:01 localhost.localdomain systemd[1]: Stopping The Apache HTTP Server...
+Nov 15 15:39:03 localhost.localdomain systemd[1]: Stopped The Apache HTTP Server.
+Hint: Some lines were ellipsized, use -l to show in full.
+[root@localhost ~]# systemctl restart httpd
+[root@localhost ~]# systemctl status httpd
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2023-11-15 15:39:17 IST; 2s ago
+     Docs: man:httpd(8)
+           man:apachectl(8)
+ Main PID: 2308 (httpd)
+   Status: "Processing requests..."
+   CGroup: /system.slice/httpd.service
+           ├─2308 /usr/sbin/httpd -DFOREGROUND
+           ├─2309 /usr/sbin/httpd -DFOREGROUND
+           ├─2310 /usr/sbin/httpd -DFOREGROUND
+           ├─2311 /usr/sbin/httpd -DFOREGROUND
+           ├─2312 /usr/sbin/httpd -DFOREGROUND
+           └─2313 /usr/sbin/httpd -DFOREGROUND
+
+----------nginx------------
+[root@localhost ~]# service nginx start
+Redirecting to /bin/systemctl start nginx.service
+[root@localhost ~]# service nginx status
+Redirecting to /bin/systemctl status nginx.service
+● nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2023-11-15 16:28:59 IST; 2s ago
+  Process: 5052 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)
+  Process: 5049 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)
+  Process: 5048 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)
+ Main PID: 5054 (nginx)
+   CGroup: /system.slice/nginx.service
+           ├─5054 nginx: master process /usr/sbin/nginx
+           └─5055 nginx: worker process
+
+Nov 15 16:28:59 localhost.localdomain systemd[1]: Starting The nginx HTTP and reverse proxy server...
+Nov 15 16:28:59 localhost.localdomain nginx[5049]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+Nov 15 16:28:59 localhost.localdomain nginx[5049]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+Nov 15 16:28:59 localhost.localdomain systemd[1]: Started The nginx HTTP and reverse proxy server.
+[root@localhost ~]# service nginx stop
+Redirecting to /bin/systemctl stop nginx.service
+[root@localhost ~]# service nginx status
+Redirecting to /bin/systemctl status nginx.service
+● nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+   Active: inactive (dead)
+
+Nov 15 16:15:55 localhost.localdomain nginx[4894]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+Nov 15 16:15:55 localhost.localdomain systemd[1]: Started The nginx HTTP and reverse proxy server.
+Nov 15 16:28:52 localhost.localdomain systemd[1]: Stopping The nginx HTTP and reverse proxy server...
+Nov 15 16:28:52 localhost.localdomain systemd[1]: Stopped The nginx HTTP and reverse proxy server.
+Nov 15 16:28:59 localhost.localdomain systemd[1]: Starting The nginx HTTP and reverse proxy server...
+Nov 15 16:28:59 localhost.localdomain nginx[5049]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+Nov 15 16:28:59 localhost.localdomain nginx[5049]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+Nov 15 16:28:59 localhost.localdomain systemd[1]: Started The nginx HTTP and reverse proxy server.
+Nov 15 16:29:08 localhost.localdomain systemd[1]: Stopping The nginx HTTP and reverse proxy server...
+Nov 15 16:29:08 localhost.localdomain systemd[1]: Stopped The nginx HTTP and reverse proxy server.
+[root@localhost ~]# service nginx restart
+Redirecting to /bin/systemctl restart nginx.service
+[root@localhost ~]# service nginx status
+Redirecting to /bin/systemctl status nginx.service
+● nginx.service - The nginx HTTP and reverse proxy server
+   Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; vendor preset: disabled)
+   Active: active (running) since Wed 2023-11-15 16:29:16 IST; 2s ago
+  Process: 5117 ExecStart=/usr/sbin/nginx (code=exited, status=0/SUCCESS)
+  Process: 5114 ExecStartPre=/usr/sbin/nginx -t (code=exited, status=0/SUCCESS)
+  Process: 5113 ExecStartPre=/usr/bin/rm -f /run/nginx.pid (code=exited, status=0/SUCCESS)
+ Main PID: 5119 (nginx)
+   CGroup: /system.slice/nginx.service
+           ├─5119 nginx: master process /usr/sbin/nginx
+           └─5120 nginx: worker process
+
+Nov 15 16:29:16 localhost.localdomain systemd[1]: Starting The nginx HTTP and reverse proxy server...
+Nov 15 16:29:16 localhost.localdomain nginx[5114]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+Nov 15 16:29:16 localhost.localdomain nginx[5114]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+Nov 15 16:29:16 localhost.localdomain systemd[1]: Started The nginx HTTP and reverse proxy server.
+----------------------index.html------------
+[root@localhost ~]# vim /etc/httpd/conf/httpd.conf
+[root@localhost ~]# vim /var/www/html
+[root@localhost ~]# cd /var/www/html/
+[root@localhost html]# ll
+total 0
+[root@localhost html]# cd
+[root@localhost ~]# vim index.html
+[root@localhost ~]# ll index.html
+-rw-r--r--. 1 root root    1877 Nov 16 13:19 index.html
+[root@localhost ~]# cp index.html /var/www/html/
+[root@localhost ~]# cd /var/www/html/
+[root@localhost html]# ll
+total 4
+-rw-r--r--. 1 root root 1877 Nov 16 13:20 index.html
+[root@localhost html]# systemctl restart httpd
+[root@localhost html]# systemctl stop firewalld
+     
+(go to web browser and search for ip of current session on which html code is saved and also port number)
+ 
+-------------------------------------------------------------------------------------------------------------------------------
+
+12. User and Group Management:
+Demonstrate about users and groups (e.g., adduser, usermod, groupadd, and groupmod ).
+Create multiple users & groups .
+Add users to multiple groups & modify the user-level & group-level permissions .
+Ans: 
+
+[root@localhost ~]# adduser usr1
+Changing password for user usr1.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@localhost ~]# adduser usr2
+Changing password for user usr2.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@localhost ~]# adduser usr3
+Changing password for user usr3.
+New password:
+BAD PASSWORD: The password is shorter than 8 characters
+Retype new password:
+passwd: all authentication tokens updated successfully.
+[root@localhost ~]# usermod -l usr1_changed usr1
+[root@localhost ~]# cat /etc/passwd
+usr2:x:1005:1006::/home/usr2:/bin/bash
+usr3:x:1006:1007::/home/usr3:/bin/bash
+usr1_changed:x:1004:1005::/home/usr1:/bin/bash
+[root@localhost ~]# usermod -aG grp2 usr2
+[root@localhost ~]# cat /etc/group
+grp2:x:1009:usr2
+grp3:x:1010:
+grp1_new:x:1008:
+[root@localhost ~]# groupadd grp1
+[root@localhost ~]# groupadd grp2
+[root@localhost ~]# groupadd grp3
+[root@localhost ~]# cat /etc/group
+grp1:x:1008:
+grp2:x:1009:
+grp3:x:1010:
+[root@localhost ~]# groupmod -n grp1_new grp1
+[root@localhost ~]# cat /etc/group
+grp2:x:1009:
+grp3:x:1010:
+grp1_new:x:1008:
+[root@localhost ~]# groupmod -g 1111 grp3
+[root@localhost cloud]# ll
+total 1324
+-rw-r--r--. 1 root root 337920 Nov  6 17:19 compress
+-rw-r--r--. 1 root root     14 Nov  7 11:44 data9
+-rw-r--r--. 1 root root 333659 Nov  6 17:18 decompress
+-rw-r--r--. 1 root root 675840 Nov  6 18:54 tar.tr
+[root@localhost cloud]# chown usr3 compress
+[root@localhost cloud]# ll
+total 1324
+-rw-r--r--. 1 usr3 root 337920 Nov  6 17:19 compress
+-rw-r--r--. 1 root root     14 Nov  7 11:44 data9
+-rw-r--r--. 1 root root 333659 Nov  6 17:18 decompress
+-rw-r--r--. 1 root root 675840 Nov  6 18:54 tar.tr
+[root@localhost cloud]# chgrp grp3 compress
+[root@localhost cloud]# ll
+total 1324
+-rw-r--r--. 1 usr3 grp3 337920 Nov  6 17:19 compress
+-rw-r--r--. 1 root root     14 Nov  7 11:44 data9
+-rw-r--r--. 1 root root 333659 Nov  6 17:18 decompress
+-rw-r--r--. 1 root root 675840 Nov  6 18:54 tar.tr
+[root@localhost cloud]# chown -R usr2:grp2 data9
+[root@localhost cloud]# ll
+total 1324
+-rw-r--r--. 1 usr3 grp3 337920 Nov  6 17:19 compress
+-rw-r--r--. 1 usr2 grp2     14 Nov  7 11:44 data9
+-rw-r--r--. 1 root root 333659 Nov  6 17:18 decompress
+-rw-r--r--. 1 root root 675840 Nov  6 18:54 tar.tr
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+13. System Logs and Monitoring:
+Demonstrate about system logs and monitoring (e.g., dmesg, journalctl, tail, dmidecode, biosdecode, lscpu, free ).
+Ans:
+
+[root@localhost ~]# dmesg
+[    0.000000] Initializing cgroup subsys cpuset
+[    0.000000] Initializing cgroup subsys cpu
+[    0.000000] Initializing cgroup subsys cpuacct
+[    0.000000] Linux version 3.10.0-1160.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 
+(Red Hat 4.8.5-44) (GCC) ) #1 SMP Mon Oct 19 16:18:59 UTC 2020
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1160.el7.x86_64 root=/dev/mapper/centos-root ro crashkernel=auto 
+rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet LANG=en_US.UTF-8
+[root@localhost ~]# dmesg | tail
+[   20.342714] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   20.671691] Ebtables v2.0 registered
+[   20.915410] Netfilter messages via NETLINK v0.30.
+[   21.000949] ip_set: protocol 7
+[   21.516358] IPv6: ADDRCONF(NETDEV_UP): enp0s8: link is not ready
+[   21.523726] e1000: enp0s8 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[   21.533025] IPv6: ADDRCONF(NETDEV_UP): enp0s8: link is not ready
+[   21.535699] IPv6: ADDRCONF(NETDEV_CHANGE): enp0s8: link becomes ready
+[   22.115432] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+[   22.400842] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load 
+br_netfilter if you need this.
+[root@localhost ~]# journalctl
+-- Logs begin at Wed 2023-11-15 17:43:54 IST, end at Wed 2023-11-15 18:16:01 IST. --
+Nov 15 17:43:54 localhost.localdomain systemd-journal[92]: Runtime journal is using 8.0M (max allowed 91.8M, trying to leave 
+137.8M free of 910.9M available 
+Nov 15 17:43:54 localhost.localdomain kernel: Initializing cgroup subsys cpuset
+Nov 15 17:43:54 localhost.localdomain kernel: Initializing cgroup subsys cpu
+Nov 15 17:43:54 localhost.localdomain kernel: Initializing cgroup subsys cpuacct
+[root@localhost ~]# journalctl -n
+-- Logs begin at Wed 2023-11-15 17:43:54 IST, end at Wed 2023-11-15 18:16:01 IST. --
+Nov 15 18:15:01 localhost.localdomain CROND[2020]: (root) CMD (top)
+Nov 15 18:15:01 localhost.localdomain postfix/pickup[1438]: E681798D: uid=0 from=<root>
+Nov 15 18:15:01 localhost.localdomain postfix/cleanup[2023]: E681798D: message-id=<20231115124501.E681798D@localhost.localdomain>
+Nov 15 18:15:01 localhost.localdomain postfix/qmgr[1439]: E681798D: from=<root@localhost.localdomain>, size=718, nrcpt=1 (queue active)
+Nov 15 18:15:02 localhost.localdomain postfix/local[2026]: E681798D: to=<root@localhost.localdomain>, orig_to=<root>, relay=local, 
+Nov 15 18:15:02 localhost.localdomain postfix/qmgr[1439]: E681798D: removed
+Nov 15 18:15:04 localhost.localdomain crontab[2027]: (root) BEGIN EDIT (root)
+Nov 15 18:15:09 localhost.localdomain crontab[2027]: (root) REPLACE (root)
+Nov 15 18:15:09 localhost.localdomain crontab[2027]: (root) END EDIT (root)
+Nov 15 18:16:01 localhost.localdomain crond[752]: (root) RELOAD (/var/spool/cron/root)
+lines 1-11/11 (END)
+[root@localhost ~]# dmidecode
+# dmidecode 3.2
+Getting SMBIOS data from sysfs.
+SMBIOS 2.5 present.
+10 structures occupying 450 bytes.
+Table at 0x000E1000.
+[root@localhost ~]# biosdecode
+# biosdecode 3.2
+ACPI 2.0 present.
+        OEM Identifier: VBOX
+        RSD Table 32-bit Address: 0x7FFF0000
+        XSD Table 64-bit Address: 0x000000007FFF0030
+BIOS32 Service Directory present.
+        Revision: 0
+        Calling Interface Address: 0x000FDA00
+PCI Interrupt Routing 1.0 present.
+        Router Device: 00:01.0
+        Exclusive IRQs: None
+[root@localhost ~]# lscpu
+Architecture:          x86_64
+CPU op-mode(s):        32-bit, 64-bit
+Byte Order:            Little Endian
+CPU(s):                1
+On-line CPU(s) list:   0
+Thread(s) per core:    1
+Core(s) per socket:    1
+Socket(s):             1
+NUMA node(s):          1
+Vendor ID:             AuthenticAMD
+CPU family:            21
+Model:                 112
+Model name:            AMD A6-9225 RADEON R4, 5 COMPUTE CORES 2C+3G
+Stepping:              0
+CPU MHz:               2595.132
+BogoMIPS:              5190.26
+Hypervisor vendor:     KVM
+Virtualization type:   full
+L1d cache:             32K
+L1i cache:             64K
+L2 cache:              1024K
+NUMA node0 CPU(s):     0
+Flags:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht 
+[root@localhost ~]# free -h
+              total        used        free      shared  buff/cache   available
+Mem:           1.8G        198M        1.3G        8.6M        316M        1.5G
+Swap:          1.0G          0B        1.0G
+[root@localhost ~]# top
+top - 18:22:56 up 39 min,  2 users,  load average: 0.00, 0.01, 0.05
+Tasks: 149 total,   1 running, 148 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.3 us,  0.3 sy,  0.0 ni, 99.3 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1882084 total,  1354516 free,   203008 used,   324560 buff/cache
+KiB Swap:  1048572 total,  1048572 free,        0 used.  1529376 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+ 2051 root      20   0       0      0      0 S  0.3  0.0   0:00.01 kworker/0:0
+ 2053 root      20   0  162104   2288   1576 R  0.3  0.1   0:00.08 top
+    1 root      20   0  128136   6700   4164 S  0.0  0.4   0:02.46 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    4 root       0 -20       0      0      0 S  0.0  0.0   0:00.00 kworker/0:0H
+[root@localhost ~]# htop
+ 
+-------------------------------------------------------------------------------------------------------------------------------
+
+14. SSH Server and Key-Based Authentication:
+Set up an SSH server and learn to use key-based authentication .
+Force password-based authentication.
+Check the SSH logs.
+Ans:
+
+---------------- key-based authentication------------
+[usr3@localhost ~]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/usr3/.ssh/id_rsa):
+Created directory '/home/usr3/.ssh'.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/usr3/.ssh/id_rsa.
+Your public key has been saved in /home/usr3/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:MhDnRsh9sG5H0ePr5X/DrUKptYQg9PickpP+JCUekmU usr3@localhost.localdomain
+The key's randomart image is:
++---[RSA 2048]----+
+|   ..o+...       |
+|    o=o...o      |
+|    ..E+.. .     |
+|     Bo.o .      |
+|    o B*So o .   |
+|     +=B+ o *    |
+|     .oo.. B .. .|
+|      .o  o +  oo|
+|       ..    ooo.|
++----[SHA256]-----+
+[usr3@localhost ~]$ cd .ssh
+[usr3@localhost .ssh]$ ll
+total 8
+-rw-------. 1 usr3 usr3 1675 Nov 16 12:03 id_rsa
+-rw-r--r--. 1 usr3 usr3  408 Nov 16 12:03 id_rsa.pub
+[usr3@localhost .ssh]$ mv id_rsa usr3-key.pem
+[usr3@localhost .ssh]$ mv id_rsa.pub usr3-key.pub
+[usr3@localhost .ssh]$ ll
+total 8
+-rw-------. 1 usr3 usr3 1675 Nov 16 12:03 usr3-key.pem
+-rw-r--r--. 1 usr3 usr3  408 Nov 16 12:03 usr3-key.pub
+[usr3@localhost .ssh]$ cat usr3-key.pub >> authorized_keys
+[usr3@localhost .ssh]$ ll
+total 12
+-rw-rw-r--. 1 usr3 usr3  408 Nov 16 12:04 authorized_keys
+-rw-------. 1 usr3 usr3 1675 Nov 16 12:03 usr3-key.pem
+-rw-r--r--. 1 usr3 usr3  408 Nov 16 12:03 usr3-key.pub
+[usr3@localhost .ssh]$ chmod 600 authorized_keys
+[usr3@localhost .ssh]$ ll
+total 12
+-rw-------. 1 usr3 usr3  408 Nov 16 12:04 authorized_keys
+-rw-------. 1 usr3 usr3 1675 Nov 16 12:03 usr3-key.pem
+-rw-r--r--. 1 usr3 usr3  408 Nov 16 12:03 usr3-key.pub
+                                                                    				 (from different terminal)
+ 16/11/2023   12:11.31   /home/mobaxterm/MyDocuments  ssh -i usr3.pem usr3@192.168.0.123
+X11 forwarding request failed on channel 0
+Last login: Thu Nov 16 12:11:17 2023 from 192.168.0.114
+
+---------------force password-based-------------
+[root@localhost ~]# vim /etc/ssh/sshd_config
+PasswordAuthentication yes
+login as: root
+root@192.168.0.123's password:
+
+-------------------SSH logs--------------------------
+[root@localhost ~]# tail  /var/log/secure
+Nov 16 12:21:16 localhost sshd[1976]: Accepted password for root from 192.168.0.114 port 65462 ssh2
+Nov 16 12:21:16 localhost sshd[1980]: Accepted password for root from 192.168.0.114 port 65463 ssh2
+Nov 16 12:21:17 localhost sshd[1976]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Nov 16 12:21:17 localhost sshd[1980]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Nov 16 12:21:24 localhost sshd[1976]: pam_unix(sshd:session): session closed for user root
+Nov 16 12:21:24 localhost sshd[1980]: pam_unix(sshd:session): session closed for user root
+Nov 16 12:21:34 localhost sshd[2010]: Accepted password for root from 192.168.0.114 port 65464 ssh2
+Nov 16 12:21:35 localhost sshd[2014]: Accepted password for root from 192.168.0.114 port 65465 ssh2
+Nov 16 12:21:35 localhost sshd[2010]: pam_unix(sshd:session): session opened for user root by (uid=0)
+Nov 16 12:21:35 localhost sshd[2014]: pam_unix(sshd:session): session opened for user root by (uid=0)
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+15. Networking Basics:
+Explore networking basics (e.g., ip, ifconfig, ping, traceroute, and netstat ).
+Ans:
+
+[root@localhost ~]# ip r
+default via 192.168.0.1 dev enp0s8 proto dhcp metric 100
+192.168.0.0/24 dev enp0s8 proto kernel scope link src 192.168.0.123 metric 100
+[root@localhost ~]# ip r l
+default via 192.168.0.1 dev enp0s8 proto dhcp metric 100
+192.168.0.0/24 dev enp0s8 proto kernel scope link src 192.168.0.123 metric 100
+[root@localhost ~]# ifconfig
+enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.123  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::fb81:ead3:abac:ecc8  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:18:10:e4  txqueuelen 1000  (Ethernet)
+        RX packets 3024  bytes 343813 (335.7 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1460  bytes 177199 (173.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 16  bytes 1036 (1.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 16  bytes 1036 (1.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+[root@localhost ~]# netstat -tunlp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1068/sshd
+tcp        0      0 127.0.0.1:25            0.0.0.0:*               LISTEN      1433/master
+tcp6       0      0 :::22                   :::*                    LISTEN      1068/sshd
+tcp6       0      0 ::1:25                  :::*                    LISTEN      1433/master
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           890/dhclient
+[root@localhost ~]# telnet  192.168.0.123  22
+Trying 192.168.0.123...
+Connected to 192.168.0.123.
+Escape character is '^]'.
+SSH-2.0-OpenSSH_7.4
+q
+Protocol mismatch.
+Connection closed by foreign host.
+[root@localhost ~]# ping google.com
+PING google.com (142.250.192.46) 56(84) bytes of data.
+64 bytes from bom12s15-in-f14.1e100.net (142.250.192.46): icmp_seq=1 ttl=118 time=9.32 ms
+64 bytes from bom12s15-in-f14.1e100.net (142.250.192.46): icmp_seq=2 ttl=118 time=7.41 ms
+64 bytes from bom12s15-in-f14.1e100.net (142.250.192.46): icmp_seq=3 ttl=118 time=13.0 ms
+[root@localhost ~]# traceroute amazon.com
+traceroute to amazon.com (205.251.242.103), 30 hops max, 60 byte packets
+ 1  gateway (192.168.0.1)  3.458 ms  3.533 ms  3.481 ms
+ 2  192.168.1.1 (192.168.1.1)  3.438 ms  3.092 ms  2.959 ms
+ 3  137.59.68.246 (137.59.68.246)  3.900 ms  3.877 ms  3.731 ms
+ 4  137.59.68.245 (137.59.68.245)  4.702 ms  4.694 ms *
+ 5  102-97-87-183.mysipl.com (183.87.97.102)  4.290 ms  4.040 ms  4.767 ms
+ 6  172.31.133.149 (172.31.133.149)  14.406 ms  13.032 ms 172.28.176.253 (172.28.176.253)  10.496 ms
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+16. DNS Tools:
+Demonstrate the use of DNS tools (e.g., dig and nslookup ).
+Ans:
+
+[root@localhost ~]# dig example.com
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.15 <<>> example.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 31218
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 5
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;example.com.                   IN      A
+
+;; ANSWER SECTION:
+example.com.            3779    IN      A       93.184.216.34
+
+;; AUTHORITY SECTION:
+example.com.            16987   IN      NS      b.iana-servers.net.
+example.com.            16987   IN      NS      a.iana-servers.net.
+
+;; ADDITIONAL SECTION:
+a.iana-servers.net.     199     IN      A       199.43.135.53
+a.iana-servers.net.     199     IN      AAAA    2001:500:8f::53
+b.iana-servers.net.     901     IN      A       199.43.133.53
+b.iana-servers.net.     901     IN      AAAA    2001:500:8d::53
+
+;; Query time: 7 msec
+;; SERVER: 192.168.0.1#53(192.168.0.1)
+;; WHEN: Thu Nov 16 12:42:20 IST 2023
+;; MSG SIZE  rcvd: 192
+[root@localhost ~]# nslookup google.com
+Server:         192.168.0.1
+Address:        192.168.0.1#53
+
+Non-authoritative answer:
+Name:   google.com
+Address: 142.250.192.46
+Name:   google.com
+Address: 2404:6800:4009:828::200e
+[root@localhost ~]# host flipkart.com
+flipkart.com has address 163.53.76.86
+flipkart.com mail is handled by 1 eu-smtp-inbound-1.mimecast.com.
+flipkart.com mail is handled by 1 eu-smtp-inbound-2.mimecast.com.
+[root@localhost ~]# whois google.com
+   Domain Name: GOOGLE.COM
+   Registry Domain ID: 2138514_DOMAIN_COM-VRSN
+   Registrar WHOIS Server: whois.markmonitor.com
+   Registrar URL: http://www.markmonitor.com
+   Updated Date: 2019-09-09T15:39:04Z
+   Creation Date: 1997-09-15T04:00:00Z
+   Registry Expiry Date: 2028-09-14T04:00:00Z
+   Registrar: MarkMonitor Inc.
+   Registrar IANA ID: 292
+   Registrar Abuse Contact Email: abusecomplaints@markmonitor.com
+   Registrar Abuse Contact Phone: +1.2086851750
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+17. Cron Job Scheduling System:
+Familiarize yourself with the cron job scheduling system & set up 5 cron jobs.
+Check the cron logs.
+Ans:
+
+[root@localhost ~]# crontab -e
+crontab: installing new crontab
+You have new mail in /var/spool/mail/root
+[root@localhost ~]# crontab -l
+0 */5 * * * tar -cvf /mnt/storage.tar /var/log
+0 * * * 1-5 /script/log-clean.sh
+*/5 */3 * * * top
+* 18 * * 5 vmstat
+0 * * * * /path/to/database_update.sh
+[root@localhost ~]# sudo cat /var/log/cron | head
+Nov  9 12:16:02 localhost run-parts(/etc/cron.daily)[15915]: finished logrotate
+Nov  9 12:16:02 localhost run-parts(/etc/cron.daily)[15807]: starting man-db.cron
+Nov  9 12:16:51 localhost run-parts(/etc/cron.daily)[23421]: finished man-db.cron
+Nov  9 12:16:51 localhost run-parts(/etc/cron.daily)[15807]: starting mlocate
+Nov  9 12:16:54 localhost run-parts(/etc/cron.daily)[23650]: finished mlocate
+Nov  9 12:16:55 localhost anacron[933]: Job `cron.daily' terminated
+Nov  9 12:17:54 localhost crond[12968]: (CRON) INFO (Shutting down)
+Nov  9 12:17:54 localhost crond[30948]: (CRON) INFO (RANDOM_DELAY will be scaled with factor 48% if used.)
+Nov  9 12:17:56 localhost crond[30948]: (CRON) INFO (running with inotify support)
+Nov  9 12:17:56 localhost crond[30948]: (CRON) INFO (@reboot jobs will be run at computer's startup.)
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+18. Disk and Partition Management:
+Learn about disk and partition management (e.g., fdisk, parted, and df ).
+Create partitions for each file system.
+Ans:
+
+[root@localhost ~]# df -h
+Filesystem               Size  Used Avail Use% Mounted on
+devtmpfs                 908M     0  908M   0% /dev
+tmpfs                    919M     0  919M   0% /dev/shm
+tmpfs                    919M  8.7M  911M   1% /run
+tmpfs                    919M     0  919M   0% /sys/fs/cgroup
+/dev/mapper/centos-root  2.0G  1.3G  765M  63% /
+/dev/sda1               1014M  150M  865M  15% /boot
+/dev/mapper/centos-home  2.0G   33M  2.0G   2% /home
+/dev/mapper/centos-var   2.0G  293M  1.8G  15% /var
+tmpfs                    184M     0  184M   0% /run/user/0
+[root@localhost ~]# fdisk -l
+
+Disk /dev/sda: 8589 MB, 8589934592 bytes, 16777216 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk label type: dos
+Disk identifier: 0x00018bd3
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048     2099199     1048576   83  Linux
+/dev/sda2         2099200    16777215     7339008   8e  Linux LVM
+
+Disk /dev/sdb: 8589 MB, 8589934592 bytes, 16777216 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+[root@localhost ~]# fdisk /dev/sdb    
+         -------(created 4 partition in which 3 is primary of 3/3/1 GB and 1 is extended of 1GB)
+[root@localhost ~]# lsblk
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda               8:0    0    8G  0 disk
+├─sda1            8:1    0    1G  0 part /boot
+└─sda2            8:2    0    7G  0 part
+  ├─centos-root 253:0    0    2G  0 lvm  /
+  ├─centos-swap 253:1    0 1020M  0 lvm  [SWAP]
+  ├─centos-home 253:2    0    2G  0 lvm  /home
+  └─centos-var  253:3    0    2G  0 lvm  /var
+sdb               8:16   0    8G  0 disk
+├─sdb1            8:17   0    3G  0 part
+├─sdb2            8:18   0    3G  0 part
+├─sdb3            8:19   0    1G  0 part
+└─sdb4            8:20   0    1K  0 part
+sdc               8:32   0    8G  0 disk
+sr0              11:0    1 1024M  0 rom
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+19. File Systems and Mounting:
+Explore file systems and mounting (e.g., ext2, ext3, ext4, xfs, and nfs ).
+Format partitions accordingly with the file system.
+Ans:
+
+[root@localhost ~]# mkfs.ext2 /dev/sdc1
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=0 blocks
+131072 inodes, 524288 blocks
+26214 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=536870912
+16 block groups
+32768 blocks per group, 32768 fragments per group
+8192 inodes per group
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912
+
+Allocating group tables: done
+Writing inode tables: done
+Writing superblocks and filesystem accounting information: done
+
+[root@localhost ~]# mkfs.ext3 /dev/sdc2
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=0 blocks
+131072 inodes, 524288 blocks
+26214 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=536870912
+16 block groups
+32768 blocks per group, 32768 fragments per group
+8192 inodes per group
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+[root@localhost ~]# mkfs.ext4 /dev/sdc3
+mke2fs 1.42.9 (28-Dec-2013)
+Filesystem label=
+OS type: Linux
+Block size=4096 (log=2)
+Fragment size=4096 (log=2)
+Stride=0 blocks, Stripe width=0 blocks
+131072 inodes, 524288 blocks
+26214 blocks (5.00%) reserved for the super user
+First data block=0
+Maximum filesystem blocks=536870912
+16 block groups
+32768 blocks per group, 32768 fragments per group
+8192 inodes per group
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (16384 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+[root@localhost ~]# mkfs.xfs /dev/sdc5
+meta-data=/dev/sdc5              isize=512    agcount=4, agsize=130944 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=523776, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+[root@localhost ~]# mount /dev/sdc1 /data1
+[root@localhost ~]# mount /dev/sdc2 /data2
+[root@localhost ~]# mount /dev/sdc3 /data3
+[root@localhost ~]# mount /dev/sdc5 /data5
+[root@localhost ~]# lsblk
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda               8:0    0    8G  0 disk
+├─sda1            8:1    0    1G  0 part /boot
+└─sda2            8:2    0    7G  0 part
+  ├─centos-root 253:0    0    2G  0 lvm  /
+  ├─centos-swap 253:1    0 1020M  0 lvm  [SWAP]
+  ├─centos-home 253:2    0    2G  0 lvm  /home
+  └─centos-var  253:3    0    2G  0 lvm  /var
+sdb               8:16   0    8G  0 disk
+├─sdb1            8:17   0    3G  0 part
+├─sdb2            8:18   0    3G  0 part
+├─sdb3            8:19   0    1G  0 part
+├─sdb4            8:20   0    1K  0 part
+└─sdb5            8:21   0 1022M  0 part
+sdc               8:32   0    8G  0 disk
+├─sdc1            8:33   0    2G  0 part /data1
+├─sdc2            8:34   0    2G  0 part /data2
+├─sdc3            8:35   0    2G  0 part /data3
+├─sdc4            8:36   0    1K  0 part
+└─sdc5            8:37   0    2G  0 part /data5
+sr0              11:0    1 1024M  0 rom
+
+[root@localhost ~]# vi /etc/fstab          -----(entering the enteris of partition in /etc/fstab to make it permanent)
+#
+# /etc/fstab
+# Created by anaconda on Mon Nov  6 13:23:45 2023
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+/dev/mapper/centos-root /                       xfs     defaults        0 0
+UUID=0faf35a9-1c2d-4189-ab3c-e614570cc3df /boot                   xfs     defaults        0 0
+/dev/mapper/centos-home /home                   xfs     defaults        0 0
+/dev/mapper/centos-var  /var                    xfs     defaults        0 0
+/dev/mapper/centos-swap swap                    swap    defaults        0 0
+/dev/sdc1               /data1                  ext2    defaults        0 0
+/dev/sdc2               /data2                  ext3    defaults        0 0
+/dev/sdc3               /data3                  ext4    defaults        0 0
+/dev/sdc5               /data5                  xfs     defaults        0 0
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+20. LAMP Stack:
+Set up a basic LAMP ( Linux, Apache, MySQL, PHP ) stack.
+Ans:
+
+---------------Linux-----------------------
+ [root@localhost ~]# rpm -qa | grep linux
+linux-firmware-20200421-80.git78c0348.el7_9.noarch
+util-linux-2.23.2-65.el7_9.1.x86_64
+selinux-policy-targeted-3.13.1-268.el7_9.2.noarch
+libselinux-2.5-15.el7.x86_64
+libselinux-utils-2.5-15.el7.x86_64
+python-linux-procfs-0.4.11-4.el7.noarch
+selinux-policy-3.13.1-268.el7_9.2.noarch
+libselinux-python-2.5-15.el7.x86_64
+You have new mail in /var/spool/mail/root
+
+---------------------- Apache----------------------
+[root@localhost ~]# rpm -qa | grep httpd
+httpd-tools-2.4.6-99.el7.centos.1.x86_64
+httpd-2.4.6-99.el7.centos.1.x86_64
+
+------------------------ MySQL--------------------
+[root@localhost ~]# yum install mysql -y
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.mirror.net.in
+ * epel: repo.extreme-ix.org
+ * extras: centos.mirror.net.in
+ * updates: centos.mirror.net.in
+Resolving Dependencies
+--> Running transaction check
+---> Package mariadb.x86_64 1:5.5.68-1.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================================================================================================
+ Package                               Arch                                 Version                                       Repository                          Size
+===================================================================================================================================================================
+Installing:
+ mariadb                               x86_64                               1:5.5.68-1.el7                                base                               8.8 M
+
+Transaction Summary
+===================================================================================================================================================================
+Install  1 Package
+
+Total download size: 8.8 M
+Installed size: 49 M
+Downloading packages:
+mariadb-5.5.68-1.el7.x86_64.rpm                                                                                                             | 8.8 MB  00:00:02
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:mariadb-5.5.68-1.el7.x86_64                                                                                                                   1/1
+  Verifying  : 1:mariadb-5.5.68-1.el7.x86_64                                                                                                                   1/1
+
+Installed:
+  mariadb.x86_64 1:5.5.68-1.el7
+
+Complete!
+You have new mail in /var/spool/mail/root
+
+------------------- PHP-----------------------------
+[root@localhost ~]# yum install php
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.mirror.net.in
+ * epel: repo.extreme-ix.org
+ * extras: centos.mirror.net.in
+ * updates: centos.mirror.net.in
+Resolving Dependencies
+--> Running transaction check
+---> Package php.x86_64 0:5.4.16-48.el7 will be installed
+--> Processing Dependency: php-common(x86-64) = 5.4.16-48.el7 for package: php-5.4.16-48.el7.x86_64
+--> Processing Dependency: php-cli(x86-64) = 5.4.16-48.el7 for package: php-5.4.16-48.el7.x86_64
+--> Running transaction check
+---> Package php-cli.x86_64 0:5.4.16-48.el7 will be installed
+---> Package php-common.x86_64 0:5.4.16-48.el7 will be installed
+--> Processing Dependency: libzip.so.2()(64bit) for package: php-common-5.4.16-48.el7.x86_64
+--> Running transaction check
+---> Package libzip.x86_64 0:0.10.1-8.el7 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+===================================================================================================================================================================
+ Package                                 Arch                                Version                                       Repository                         Size
+===================================================================================================================================================================
+Installing:
+ php                                     x86_64                              5.4.16-48.el7                                 base                              1.4 M
+Installing for dependencies:
+ libzip                                  x86_64                              0.10.1-8.el7                                  base                               48 k
+ php-cli                                 x86_64                              5.4.16-48.el7                                 base                              2.7 M
+ php-common                              x86_64                              5.4.16-48.el7                                 base                              565 k
+
+Transaction Summary
+===================================================================================================================================================================
+Install  1 Package (+3 Dependent packages)
+
+Total download size: 4.7 M
+Installed size: 17 M
+Is this ok [y/d/N]: y
+Downloading packages:
+(1/4): libzip-0.10.1-8.el7.x86_64.rpm                                                                                                       |  48 kB  00:00:01
+(2/4): php-common-5.4.16-48.el7.x86_64.rpm                                                                                                  | 565 kB  00:00:02
+(3/4): php-5.4.16-48.el7.x86_64.rpm                                                                                                         | 1.4 MB  00:00:03
+(4/4): php-cli-5.4.16-48.el7.x86_64.rpm                                                                                                     | 2.7 MB  00:00:04
+----------------------------------------------------------------------------------------
+Total                                                                                                                              1.1 MB/s | 4.7 MB  00:00:04
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : libzip-0.10.1-8.el7.x86_64                                                                                                                      1/4
+  Installing : php-common-5.4.16-48.el7.x86_64                                                                                                                 2/4
+  Installing : php-cli-5.4.16-48.el7.x86_64                                                                                                                    3/4
+  Installing : php-5.4.16-48.el7.x86_64                                                                                                                        4/4
+  Verifying  : php-5.4.16-48.el7.x86_64                                                                                                                        1/4
+  Verifying  : libzip-0.10.1-8.el7.x86_64                                                                                                                      2/4
+  Verifying  : php-cli-5.4.16-48.el7.x86_64                                                                                                                    3/4
+  Verifying  : php-common-5.4.16-48.el7.x86_64                                                                                                                 4/4
+
+Installed:
+  php.x86_64 0:5.4.16-48.el7
+
+Dependency Installed:
+  libzip.x86_64 0:0.10.1-8.el7                       php-cli.x86_64 0:5.4.16-48.el7                       php-common.x86_64 0:5.4.16-48.el7
+
+Complete!
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+21. Demonstrate about Linux security (e.g., iptables, ufw, and SELinux).
+Ans:
+
+Iptables--
+[root@localhost ~]# iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+[root@localhost ~]# iptables -A INPUT -j DROP
+[root@localhost ~]# iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             anywhere
+INPUT_direct  all  --  anywhere             anywhere
+INPUT_ZONES_SOURCE  all  --  anywhere             anywhere
+INPUT_ZONES  all  --  anywhere             anywhere
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+ACCEPT     tcp  --  anywhere             anywhere             tcp dpt:ssh
+DROP       all  --  anywhere             anywhere
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+ACCEPT     all  --  anywhere             anywhere             ctstate RELATED,ESTABLISHED
+ACCEPT     all  --  anywhere             anywhere
+FORWARD_direct  all  --  anywhere             anywhere
+FORWARD_IN_ZONES_SOURCE  all  --  anywhere             anywhere
+FORWARD_IN_ZONES  all  --  anywhere             anywhere
+FORWARD_OUT_ZONES_SOURCE  all  --  anywhere             anywhere
+FORWARD_OUT_ZONES  all  --  anywhere             anywhere
+DROP       all  --  anywhere             anywhere             ctstate INVALID
+REJECT     all  --  anywhere             anywhere             reject-with icmp-host-prohibited
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+ACCEPT     all  --  anywhere             anywhere
+OUTPUT_direct  all  --  anywhere             anywhere
+
+Chain FORWARD_IN_ZONES (1 references)
+target     prot opt source               destination
+FWDI_public  all  --  anywhere             anywhere            [goto]
+FWDI_public  all  --  anywhere             anywhere            [goto]
+
+Chain FORWARD_IN_ZONES_SOURCE (1 references)
+target     prot opt source               destination
+
+Chain FORWARD_OUT_ZONES (1 references)
+target     prot opt source               destination
+FWDO_public  all  --  anywhere             anywhere            [goto]
+FWDO_public  all  --  anywhere             anywhere            [goto]
+
+Chain IN_public_deny (1 references)
+target     prot opt source               destination
+Chain IN_public_log (1 references)
+target     prot opt source               destination
+
+Ufw-----
+[root@localhost ~]# yum install epel-release
+[root@localhost ~]# yum install ufw
+[root@localhost ~]# ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+[root@localhost ~]# ufw start
+ERROR: Invalid syntax
+
+Usage: ufw COMMAND
+
+Commands:
+ enable                          enables the firewall
+ disable                         disables the firewall
+ default ARG                     set default policy
+ logging LEVEL                   set logging to LEVEL
+ allow ARGS                      add allow rule
+ deny ARGS                       add deny rule
+ reject ARGS                     add reject rule
+ limit ARGS                      add limit rule
+ delete RULE|NUM                 delete RULE
+ insert NUM RULE                 insert RULE at NUM
+ route RULE                      add route RULE
+ route delete RULE|NUM           delete route RULE
+ route insert NUM RULE           insert route RULE at NUM
+ reload                          reload firewall
+ reset                           reset firewall
+ status                          show firewall status
+ status numbered                 show firewall status as numbered list of RULES
+ status verbose                  show verbose firewall status
+ show ARG                        show firewall report
+ version                         display version information
+
+Application profile commands:
+ app list                        list application profiles
+ app info PROFILE                show information on PROFILE
+ app update PROFILE              update PROFILE
+ app default ARG                 set default application policy
+
+[root@localhost ~]# ufw allow http
+Skipping adding existing rule
+Rule added (v6)
+[root@localhost ~]# ufw allow https
+Rule added
+Rule added (v6)
+[root@localhost ~]# ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+SSH                        ALLOW       Anywhere
+224.0.0.251 mDNS           ALLOW       Anywhere
+80                         ALLOW       Anywhere
+443                        ALLOW       Anywhere
+SSH (v6)                   ALLOW       Anywhere (v6)
+ff02::fb mDNS              ALLOW       Anywhere (v6)
+80 (v6)                    ALLOW       Anywhere (v6)
+443 (v6)                   ALLOW       Anywhere (v6)
+
+SELinux----
+[root@localhost ~]# sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      31
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+22. Demonstrate using text processing commands (e.g., grep, awk, sed, sort, cut, paste , tr ).
+Ans:
+
+grep
+[root@localhost ~]# ps aux | grep yum
+root      1829  0.0  0.0 112808   960 pts/1    S+   18:27   0:00 grep --color=auto yum
+
+awk
+ [root@localhost ~]# df -h | awk '{print $1}'
+Filesystem
+devtmpfs
+tmpfs
+tmpfs
+tmpfs
+/dev/sda6
+/dev/sda2
+/dev/sda3
+/dev/sda1
+tmpfs
+192.168.0.118:/srv/nfs/share
+/dev/sdb1
+
+sed
+ [root@localhost ~]# cat commands
+fristName       lastName        age     city       ID
+Thomas          Shelby          30      Rio        400
+Omega           Night           45      Ontario    600
+Wood            Tinker          54      Lisbon     N/A
+Giorgos         Georgiou        35      London     300
+Timmy           Turner          32      Berlin     N/A
+[root@localhost ~]# cat commands | sed 's/Thomas/John/g'
+fristName       lastName        age     city       ID
+John          Shelby          30      Rio        400
+Omega           Night           45      Ontario    600
+Wood            Tinker          54      Lisbon     N/A
+Giorgos         Georgiou        35      London     300
+Timmy           Turner          32      Berlin     N/A
+[root@localhost ~]# cat commands
+fristName       lastName        age     city       ID
+Thomas          Shelby          30      Rio        400
+Omega           Night           45      Ontario    600
+Wood            Tinker          54      Lisbon     N/A
+Giorgos         Georgiou        35      London     300
+Timmy           Turner          32      Berlin     N/A
+
+sort
+[root@localhost ~]# cat demo
+b
+d
+a
+s
+e
+a
+[root@localhost ~]# sort demo
+a
+a
+b
+d
+e
+s
+
+cut
+[root@localhost ~]# cat file.txt
+NAME                    LATEST_RELEASE          PACKAGE_MANAGER
+Linux                   23.04                   apt
+Ubuntu                  1.96                    dnf
+Red Hat                 2.58                    apt
+Rocky Linux             5.96                    dnf
+Alma Linux              8.32                    dnf
+[root@localhost ~]# cut -b 1 file.txt
+N
+L
+U
+R
+R
+A
+
+paste  
+[root@localhost ~]# cat number
+1
+2
+3
+4
+5
+6
+[root@localhost ~]# cat state
+Maharashtra
+Assam
+Chhattisgarh
+Kashmir
+Gujrat
+Arunachal Pradesh
+[root@localhost ~]# paste number state 
+1       Maharashtra     
+2       Assam   
+3       Chhattisgarh    
+4       Kashmir 
+5       Gujrat  
+6       Arunachal Pradesh       
+
+tr
+[root@localhost ~]# cat linux.txt
+linux is my life
+linux has changed my life
+linux is best and everthing to me..:)
+[root@localhost ~]# cat linux.txt | tr [:lower:] [:upper:]
+LINUX IS MY LIFE
+LINUX HAS CHANGED MY LIFE
+LINUX IS BEST AND EVERTHING TO ME..:)
+
+uniq
+[root@localhost ~]# cat demo
+b
+b
+d
+d
+a
+s
+s
+e
+a
+a
+[root@localhost ~]# uniq demo
+b
+d
+a
+s
+e
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+23. Set up a basic file server using NFS. Mount NFS on 2 Linux boxes. Partition should get mounted even after reboot. 
+Ans:
+
+======== nfs-server =======
+[root@localhost ~]# yum update -y
+[root@localhost ~]# yum install nfs-utils -y
+[root@localhost ~]# systemctl enable nfs-server
+[root@localhost ~]# systemctl start nfs-server
+[root@localhost ~]# mkdir -p /srv/nfs/server
+[root@localhost ~]# vim /etc/exports
+
+/srv/nfs/server  *(rw,sync,no_root_squash)
+
+[root@localhost ~]# exportfs -a
+[root@localhost ~]# systemctl restart nfs-server
+
+======== nfs-client =======
+[root@localhost ~]# yum install nfs-utils -y
+[root@localhost ~]# mkdir /mnt/client
+[root@localhost ~]# mount -t nfs 192.168.87.59:/srv/nfs/server /mnt/client   ---(IP will be the nfs server’s IP)
+[root@localhost ~]# vim /etc/fstab
+
+#
+# /etc/fstab
+# Created by anaconda on Thu Nov 23 12:54:06 2023
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+UUID=d6693a16-6814-424e-90d3-f09d2a569c87 /                       xfs     defaults        0 0
+UUID=c4d47c6d-5b63-4dac-8ef7-65ca9d738afc /boot                   xfs     defaults        0 0
+UUID=5b57977d-ef29-430e-b106-9221f00981df /home                   xfs     defaults        0 0
+UUID=3d8cc5f0-c4b9-4c40-82f7-2489ebce7bd1 /var                    xfs     defaults        0 0
+UUID=20e599e0-1f6b-497d-8abb-715c5fd06cf5 swap                    swap    defaults        0 0
+/dev/sdb1                                 /largestore             xfs     defaults        0 0
+/largestore/swapfile                      swap                    swap    defaults        0 0
+192.168.87.59:/srv/nfs/server             /mnt/client             nfs     defaults        0 0
+
+[root@localhost ~]# mount -a
+[root@localhost client]# df -h
+Filesystem                     Size  Used Avail Use% Mounted on
+devtmpfs                       909M     0  909M   0% /dev
+tmpfs                          919M     0  919M   0% /dev/shm
+tmpfs                          919M  8.8M  911M   1% /run
+tmpfs                          919M     0  919M   0% /sys/fs/cgroup
+/dev/sda6                      2.4G  1.3G  1.1G  54% /
+/dev/sda2                      1.9G   33M  1.9G   2% /home
+/dev/sda3                      1.9G  346M  1.6G  19% /var
+/dev/sdb1                       15G  2.0G   14G  14% /largestore
+/dev/sda1                      950M  142M  809M  15% /boot
+tmpfs                          184M     0  184M   0% /run/user/0
+192.168.87.59:/srv/nfs/server  2.0G  1.5G  598M  71% /mnt/client
+
+=====Testing the nfs======
+[root@localhost ~]# cd /srv/nfs/server/      ----(create file/directory on server machines’s nfs file path)
+[root@localhost server]# mkdir nfs
+[root@localhost server]# ll
+total 0
+drwxr-xr-x. 2 root root 6 Nov 25 13:51 nfs
+
+[root@localhost ~]# cd /mnt/client/      ------(and check the file is present in the client machine’s nfs file path)
+[root@localhost client]# ll
+total 0
+drwxr-xr-x. 2 root root 6 Nov 25  2023 nfs
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+24. Demonstrate about system backup and recovery (e.g., rsync, dd , scp). Use multiple Linux machines. 
+Ans:
+
+Rsync
+  ---machine 1----
+[root@localhost ~]# rsync -avzh machine1 root@192.168.0.120:/root     -------(sending file to another machine)
+
+root@192.168.0.120's password:
+sending incremental file list
+machine1
+
+sent 129 bytes  received 35 bytes  46.86 bytes/sec
+total size is 41  speedup is 0.25
+
+---machine 2----
+[root@localhost ~]# ll
+total 16
+-rw-------. 1 root root 1685 Nov 23 13:11 anaconda-ks.cfg
+-rw-r--r--. 1 root root   41 Nov 24 13:00 machine1
+
+dd
+[root@localhost ~]# dd if=/dev/zero of=demo bs=1M count=500
+500+0 records in
+500+0 records out
+524288000 bytes (524 MB) copied, 3.30159 s, 159 MB/s
+[root@localhost ~]# ll -h
+total 501M
+-rw-------. 1 root root 1.9K Nov  6 13:36 anaconda-ks.cfg
+-rw-r--r--. 1 root root 500M Nov 27 11:23 demo                   --------(file created of 500 mb)
+
+scp
+-----machine 1-----
+[root@localhost ~]# ll
+total 512016
+-rw-------. 1 root root      1685 Nov 23 13:11 anaconda-ks.cfg
+-rw-r--r--. 1 root root 524288000 Nov 24 17:45 demo
+-rw-r--r--. 1 root root        41 Nov 24 13:00 machine1
+-rwxr-xr-x. 1 root root       378 Nov 24 13:59 port_numbers.sh
+-rwxr-xr-x. 1 root root       301 Nov 24 14:02 ports
+
+-----machine 2-----
+[root@localhost ~]# scp -pr root@192.168.0.120:/root/ports /root/    -------(pulling file from another machine)
+root@192.168.0.120's password:
+ports                                                                                                                            100%  301    23.6KB/s   00:00
+[root@localhost ~]# ll
+total 12
+-rw-------. 1 root root 1850 Nov 23 11:46 anaconda-ks.cfg
+-rw-r--r--. 1 root root   41 Nov 24 13:00 machine1
+-rwxr-xr-x. 1 root root  301 Nov 24 14:02 ports
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+25. Familiarize yourself with performance monitoring tools (e.g., iostat, vmstat, and sar). Enable it & demonstrate the same.  
+Ans:
+
+[root@localhost ~]# yum install sysstat
+
+Iostat                                               ---(it shows the status of input and output data of server)
+[root@localhost ~]# iostat
+Linux 3.10.0-1160.102.1.el7.x86_64 (localhost.localdomain)      11/24/2023      _x86_64_        (1 CPU)
+
+avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.66    0.00    1.10    0.33    0.00   97.91
+
+Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+sda               5.15       130.28         9.78     318816      23941
+sdb               0.25         5.48         3.35      13420       8192
+sdc               0.09         3.08         0.84       7525       2048
+dm-0              2.16        44.52         4.87     108935      11918
+dm-1              0.04         0.90         0.00       2204          0
+dm-2              0.46         1.29         0.84       3164       2048
+dm-3              0.83        71.14         3.49     174078       8533
+
+vmstat				---(it shows the status of virtula memory of server)
+[root@localhost ~]# vmstat
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 2  0      0 1376228   2108 316348    0    0   138    14   59  107  1  1 98  0  0
+
+sar				---(it shows the status of system’s activities)
+[root@localhost ~]# sar 2
+Linux 3.10.0-1160.102.1.el7.x86_64 (localhost.localdomain)      11/24/2023      _x86_64_        (1 CPU)
+
+06:10:44 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle
+06:10:46 PM     all      0.00      0.00      0.00      0.00      0.00    100.00
+06:10:48 PM     all      0.00      0.00      0.00      0.00      0.00    100.00
+06:10:50 PM     all      0.00      0.00      0.50      0.00      0.00     99.50
+06:10:52 PM     all      0.00      0.00      0.50      0.00      0.00     99.50
+06:10:54 PM     all      0.00      0.00      0.50      0.00      0.00     99.50
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+26. Add 2GBSwap in Linux from File ? Demonstrate it. 
+Ans:
+
+[root@localhost largestore]# dd if=/dev/zero of=swapfile bs=1M count=2000
+2000+0 records in
+2000+0 records out
+2097152000 bytes (2.1 GB) copied, 19.0539 s, 110 MB/s
+[root@localhost largestore]# chmod 600 swapfile
+[root@localhost largestore]# mkswap swapfile
+Setting up swapspace version 1, size = 2047996 KiB
+no label, UUID=fce67e20-3793-4fa9-a6f8-1481e4fb400f
+[root@localhost largestore]# ll -h
+total 2.0G
+-rw-------. 1 root root 2.0G Nov 24 18:12 swapfile
+[root@localhost largestore]# swapon swapfile
+
+[root@localhost largestore]# vi /etc/fstab
+
+#
+# /etc/fstab
+# Created by anaconda on Thu Nov 23 12:54:06 2023
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+UUID=d6693a16-6814-424e-90d3-f09d2a569c87 /                       xfs     defaults        0 0
+UUID=c4d47c6d-5b63-4dac-8ef7-65ca9d738afc /boot                   xfs     defaults        0 0
+UUID=5b57977d-ef29-430e-b106-9221f00981df /home                   xfs     defaults        0 0
+UUID=3d8cc5f0-c4b9-4c40-82f7-2489ebce7bd1 /var                    xfs     defaults        0 0
+UUID=20e599e0-1f6b-497d-8abb-715c5fd06cf5 swap                    swap    defaults        0 0
+/dev/sdb1                                 /largestore             xfs     defaults        0 0
+192.168.0.118:/srv/nfs/share              /mnt/nfs-share          nfs     defaults        0 0
+/largestore/swapfile                      swap                    swap    defaults        0 0
+
+:wq
+
+[root@localhost largestore]# mount -a
+[root@localhost largestore]# free -m
+              total        used        free      shared  buff/cache   available
+Mem:           1837         204          77           8        1556        1466
+Swap:          2952           0        2952
+
+[root@localhost largestore]# swapon -s
+Filename                                Type            Size    Used    Priority
+/dev/sda5                               partition       975868  0       -2
+/largestore/swapfile                    file    2047996 0       -3
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+27. Add LVM Disk, Resize LVM , Reduce LVM & Remove LVM ? Demonstrate it. 
+Ans:
+
+[root@localhost ~]# fdisk /dev/sdc
+Command (m for help): n     			------(provided whole space for one partition)
+Command (m for help): t
+Command (m for help): p
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdc1            2048     8388607     4193280   8e  Linux LVM
+Command (m for help): w
+
+[root@localhost ~]# fdisk /dev/sdd
+Command (m for help): n			------(provided whole space for one partition)
+Command (m for help): t
+Command (m for help): p
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdd1            2048     8388607     4193280   8e  Linux LVM
+Command (m for help): w
+
+[root@localhost ~]# pvcreate /dev/sdc1
+  Physical volume "/dev/sdc1" successfully created.
+[root@localhost ~]# pvcreate /dev/sdd1
+  Physical volume "/dev/sdd1" successfully created.
+[root@localhost ~]# pvs
+  PV         VG Fmt  Attr PSize  PFree
+  /dev/sdc1     lvm2 ---  <4.00g <4.00g
+  /dev/sdd1     lvm2 ---  <4.00g <4.00g
+
+[root@localhost ~]# vgcreate datavg /dev/sdc1 /dev/sdd1
+  Volume group "datavg" successfully created
+[root@localhost ~]# vgs
+  VG     #PV #LV #SN Attr   VSize VFree
+  datavg   2   0   0 wz--n- 7.99g 7.99g
+
+[root@localhost ~]# lvcreate -L 3G datavg
+  Logical volume "lvol0" created.
+[root@localhost ~]# lvcreate -L 3G datavg
+  Logical volume "lvol1" created.
+[root@localhost ~]# lvs
+  LV    VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lvol0 datavg -wi-a----- 3.00g
+  lvol1 datavg -wi-a----- 3.00g
+
+[root@localhost ~]# mkfs.xfs /dev/datavg/lvol0
+meta-data=/dev/datavg/lvol0      isize=512    agcount=4, agsize=196608 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=786432, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+
+[root@localhost ~]# mkfs.xfs /dev/datavg/lvol1
+meta-data=/dev/datavg/lvol1      isize=512    agcount=4, agsize=196608 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=786432, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+
+[root@localhost ~]# mkdir /mountfile{1..2}
+[root@localhost ~]# mount /dev/datavg/lvol0 /mountfile1
+[root@localhost ~]# mount /dev/datavg/lvol1 /mountfile2
+[root@localhost ~]# lsblk -f /dev/datavg/lvol0 /dev/datavg/lvol1
+NAME         FSTYPE LABEL UUID                                 MOUNTPOINT
+datavg-lvol0 xfs          485a1d2c-4b44-4063-8700-e40971b1bf4b /mountfile1
+datavg-lvol1 xfs          14009d9d-3daa-4a4c-a62e-166d98904dbe /mountfile2
+
+[root@localhost ~]# lvs
+  LV    VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lvol0 datavg -wi-a----- 3.00g
+  lvol1 datavg -wi-a----- 3.00g
+[root@localhost ~]# vi /etc/fstab
+
+#
+# /etc/fstab
+# Created by anaconda on Thu Nov 23 12:54:06 2023
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk'
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info
+#
+UUID=d6693a16-6814-424e-90d3-f09d2a569c87 /                       xfs     defaults        0 0
+UUID=c4d47c6d-5b63-4dac-8ef7-65ca9d738afc /boot                   xfs     defaults        0 0
+UUID=5b57977d-ef29-430e-b106-9221f00981df /home                   xfs     defaults        0 0
+UUID=3d8cc5f0-c4b9-4c40-82f7-2489ebce7bd1 /var                    xfs     defaults        0 0
+UUID=20e599e0-1f6b-497d-8abb-715c5fd06cf5 swap                    swap    defaults        0 0
+/dev/sdb1                                 /largestore             xfs     defaults        0 0
+192.168.87.59:/srv/nfs/server             /mnt/client             nfs     defaults        0 0
+/largestore/swapfile                      swap                    swap    defaults        0 0
+/dev/datavg/lvol0                         /mountfile1             xfs     defaults        0 0
+/dev/datavg/lvol1                         /mountfile2             xfs     defaults        0 0
+
+[root@localhost ~]# mount -a
+
+Extending lvm
+[root@localhost ~]# lvextend -L +1G /dev/datavg/lvol1
+  Size of logical volume datavg/lvol1 changed from 3.00 GiB (768 extents) to 4.00 GiB (1024 extents).
+  Logical volume datavg/lvol1 successfully resized.
+
+[root@localhost ~]# lvs
+  LV    VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lvol0 datavg -wi-ao---- 3.00g
+  lvol1 datavg -wi-ao---- 4.00g
+[root@localhost ~]# umount /mountfile2
+
+Reducing lvm
+[root@localhost ~]# lvreduce -L -1G /dev/datavg/lvol1
+  WARNING: Reducing active logical volume to 3.00 GiB.
+  THIS MAY DESTROY YOUR DATA (filesystem etc.)
+Do you really want to reduce datavg/lvol1? [y/n]: y
+  Size of logical volume datavg/lvol1 changed from 4.00 GiB (1024 extents) to 3.00 GiB (768 extents).
+  Logical volume datavg/lvol1 successfully resized.
+[root@localhost ~]# lvs
+  LV    VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lvol0 datavg -wi-ao---- 3.00g
+  lvol1 datavg -wi-a----- 3.00g
+
+Removing lvm
+[root@localhost ~]# umount /mountfile1
+[root@localhost ~]# lvremove /dev/datavg/lvol0
+Do you really want to remove active logical volume datavg/lvol0? [y/n]: y
+  Logical volume "lvol0" successfully removed
+[root@localhost ~]# lvs
+  LV    VG     Attr       LSize Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  lvol1 datavg -wi-ao---- 3.00g
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+28. Create 1 AWS instance, SSH from Key, change permission of /home/ec2-user to chmod -R 777, Logout , try login , recover it by mounting the disk to another EC2 instance. 
+Ans:
+
+First create one instance:
+ 
+
+ 28/11/2023   16:18.04   /mnt/c/Users/admin/Downloads  ll linux1.pem
+-rw-------    1 admin    UsersGrp      1678 Nov 28 12:46 linux1.pem
+                                                                                                                                                                  ✓
+ 28/11/2023   16:32.33   /mnt/c/Users/admin/Downloads  chmod 400 linux1.pem
+ 28/11/2023   16:32.44   /mnt/c/Users/admin/Downloads  ssh -i linux1.pem ec2-user@15.207.54.37
+X11 forwarding request failed on channel 0
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Tue Nov 28 10:14:08 2023 from 137.59.68.246
+[ec2-user@ip-172-31-11-11 ~]$ cd /home/
+[ec2-user@ip-172-31-11-11 home]$ ll
+total 0
+drwx------. 3 ec2-user ec2-user 95 Nov 28 07:49 ec2-user
+[ec2-user@ip-172-31-11-11 home]$ chmod -R 777 ec2-user/
+[ec2-user@ip-172-31-11-11 home]$ ll
+total 0
+drwxrwxrwx. 3 ec2-user ec2-user 95 Nov 28 07:49 ec2-user
+[ec2-user@ip-172-31-11-11 home]$ logout
+Connection to 15.207.54.37 closed.
+                                                                                                                                                                  ✓
+  28/11/2023   16:36.13   /mnt/c/Users/admin/Downloads  ssh -i linux1.pem ec2-user@15.207.54.37
+ec2-user@15.207.54.37: Permission denied (publickey,gssapi-keyex,gssapi-with-mic).
+ 
+Create one more instance on same availability zone
+ 
+
+Stop the first instance and detach the volume from it
+ 
+
+Now stop the second instance 
+ 
+
+Add that detached volume in the second instance
+ 
+
+Now start the second instance in which volume is attached
+ 
+
+Now reboot that instance
+ 
+Then ssh the second instance on linux--
+
+  28/11/2023   16:36.20   /mnt/c/Users/admin/Downloads  ssh -i linux1.pem ec2-user@13.233.158.15
+Warning: Permanently added '13.233.158.15' (ED25519) to the list of known hosts.
+X11 forwarding request failed on channel 0
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Tue Nov 28 09:46:20 2023 from 137.59.68.246
+[ec2-user@ip-172-31-8-15 ~]$ lsblk
+NAME      MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+xvda      202:0    0  12G  0 disk
+├─xvda1   202:1    0  12G  0 part /
+├─xvda127 259:0    0   1M  0 part
+└─xvda128 259:1    0  10M  0 part /boot/efi
+xvdf      202:80   0   8G  0 disk
+├─xvdf1   202:81   0   8G  0 part
+├─xvdf127 259:2    0   1M  0 part
+└─xvdf128 259:3    0  10M  0 part
+
+[ec2-user@ip-172-31-8-15 ~]$ lsblk -f
+NAME      FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+xvda
+├─xvda1   xfs          /     66eb3733-37f3-4398-9990-e97c15b01e5b   10.4G    13% /
+├─xvda127
+└─xvda128 vfat   FAT16       A208-E305                               8.7M    13% /boot/efi
+xvdf
+├─xvdf1   xfs          /     66eb3733-37f3-4398-9990-e97c15b01e5b
+├─xvdf127
+└─xvdf128 vfat   FAT16       A208-E305 
+                                  -------( here we can see the UUID of both partition is same which we have to change to mount it)
+[ec2-user@ip-172-31-8-15 ~]$ sudo xfs_admin -U generate /dev/xvdf1
+Clearing log and setting UUID
+writing all SBs
+new UUID = d0b54d6c-9113-46c8-850f-205717ccb273
+[ec2-user@ip-172-31-8-15 ~]$ lsblk -f
+NAME      FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+xvda
+├─xvda1   xfs          /     66eb3733-37f3-4398-9990-e97c15b01e5b   10.4G    13% /
+├─xvda127
+└─xvda128 vfat   FAT16       A208-E305                               8.7M    13% /boot/efi
+xvdf
+├─xvdf1   xfs          /     d0b54d6c-9113-46c8-850f-205717ccb273
+├─xvdf127
+└─xvdf128 vfat   FAT16       A208-E305
+                                	                                                   -------(now we can see the UUID is changed)
+[ec2-user@ip-172-31-8-15 ~]$ sudo mkdir /recovery
+[ec2-user@ip-172-31-8-15 ~]$ sudo mount /dev/xvdf1 /recovery
+[ec2-user@ip-172-31-8-15 ~]$ lsblk
+NAME      MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
+xvda      202:0    0  12G  0 disk
+├─xvda1   202:1    0  12G  0 part /
+├─xvda127 259:0    0   1M  0 part
+└─xvda128 259:1    0  10M  0 part /boot/efi
+xvdf      202:80   0   8G  0 disk
+├─xvdf1   202:81   0   8G  0 part /recovery
+├─xvdf127 259:2    0   1M  0 part
+└─xvdf128 259:3    0  10M  0 part
+
+[ec2-user@ip-172-31-8-15 ~]$ cd /recovery/home/
+[ec2-user@ip-172-31-8-15 home]$ ll
+total 0
+drwxrwxrwx. 3 ec2-user ec2-user 95 Nov 28 07:49 ec2-user
+[ec2-user@ip-172-31-8-15 home]$ chmod -R 700 ec2-user/
+[ec2-user@ip-172-31-8-15 ~]$ sudo umount /recovery
+			                                 ------(now unmount the file from the second partiotion)
+[ec2-user@ip-172-31-8-15 ~]$ sudo xfs_admin -U 66eb3733-37f3-4398-9990-e97c15b01e5b /dev/xvdf1
+Clearing log and setting UUID
+writing all SBs
+new UUID = 66eb3733-37f3-4398-9990-e97c15b01e5b
+						-------(now set UUID as it was in the starting to complete this)
+[ec2-user@ip-172-31-8-15 ~]$ lsblk -f
+NAME      FSTYPE FSVER LABEL UUID                                 FSAVAIL FSUSE% MOUNTPOINTS
+xvda
+├─xvda1   xfs          /     66eb3733-37f3-4398-9990-e97c15b01e5b   10.4G    13% /
+├─xvda127
+└─xvda128 vfat   FAT16       A208-E305                               8.7M    13% /boot/efi
+xvdf
+├─xvdf1   xfs          /     66eb3733-37f3-4398-9990-e97c15b01e5b
+├─xvdf127
+└─xvdf128 vfat   FAT16       A208-E305
+
+Now stop that instance 
+ 
+ 
+Now detach that first volume
+ 
+
+And attach it where it was actually located at (first instance)
+ 
+
+Make sure the Device name will be the same as it was in the beginning
+ 
+
+Now start the first instance
+ 
+
+			-----(Now try to login with ssh to first instance now it will allow you to login in it) 
+ 
+ 28/11/2023   17:23.12   /mnt/c/Users/admin/Downloads  ssh -i linux1.pem ec2-user@15.207.223.196
+Warning: Permanently added '15.207.223.196' (ED25519) to the list of known hosts.
+X11 forwarding request failed on channel 0
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Tue Nov 28 11:04:28 2023 from 137.59.68.246
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+29. Print all common port numbers in Linux using echo command ? Demonstrate the same. 
+Ans:
+[root@localhost ~]# vim ports.sh
+
+echo "HTTP (80)"
+echo "HTTPS (443)"
+echo "SSH (22)"
+echo "FTP (21)"
+echo "Telnet (23)"
+echo "SMTP (25)"
+echo "DNS (53)"
+echo "HTTP Proxy (8080)"
+echo "MySQL (3306)"
+echo "PostgreSQL (5432)"
+echo "RDP (3389)"
+echo "LDAP (389)"
+echo "IMAP (143)"
+echo "POP3 (110)"
+
+:wq
+
+[root@localhost ~]# chmod 755 ports.sh
+[root@localhost ~]# ./ports.sh
+HTTP (80)
+HTTPS (443)
+SSH (22)
+FTP (21)
+Telnet (23)
+SMTP (25)
+DNS (53)
+HTTP Proxy (8080)
+MySQL (3306)
+PostgreSQL (5432)
+RDP (3389)
+LDAP (389)
+IMAP (143)
+POP3 (110)
+[root@localhost ~]# ./ports.sh > port-numbers
+[root@localhost ~]# cat port-numbers
+HTTP (80)
+HTTPS (443)
+SSH (22)
+FTP (21)
+Telnet (23)
+SMTP (25)
+DNS (53)
+HTTP Proxy (8080)
+MySQL (3306)
+PostgreSQL (5432)
+RDP (3389)
+LDAP (389)
+IMAP (143)
+POP3 (110)
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+30. NIC Bonding or Teaming in Linux ? Demonstrate  the same. rpm -qa from.
+Ans:
+
+[root@localhost ~]# modprobe bonding
+[root@localhost ~]# lsmod | grep bonding
+bonding               157075  0
+
+[root@localhost network-scripts]# ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 08:00:27:8f:11:99  txqueuelen 1000  (Ethernet)
+        RX packets 54  bytes 6838 (6.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.87.11  netmask 255.255.255.0  broadcast 192.168.87.255
+        inet6 fe80::228d:1c59:5a85:64a  prefixlen 64  scopeid 0x20<link>
+        inet6 2402:8100:31bc:a24c:d3ad:6647:562d:258c  prefixlen 64  scopeid 0x0<global>
+        ether 08:00:27:6a:ae:c4  txqueuelen 1000  (Ethernet)
+        RX packets 798  bytes 71642 (69.9 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 481  bytes 57582 (56.2 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s9: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.87.84  netmask 255.255.255.0  broadcast 192.168.87.255
+        inet6 fe80::3d:9378:ef41:9a71  prefixlen 64  scopeid 0x20<link>
+        inet6 2402:8100:31bc:a24c:8622:4e8d:46f8:f417  prefixlen 64  scopeid 0x0<global>
+        ether 08:00:27:2e:52:a5  txqueuelen 1000  (Ethernet)
+        RX packets 55  bytes 6204 (6.0 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 27  bytes 3238 (3.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s10: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.87.175  netmask 255.255.255.0  broadcast 192.168.87.255
+        inet6 2402:8100:31bc:a24c:481b:bc4e:2241:97f9  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::d6a5:e45a:bde4:a60f  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:01:92:ed  txqueuelen 1000  (Ethernet)
+        RX packets 69  bytes 7678 (7.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 35  bytes 3638 (3.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 2  bytes 140 (140.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2  bytes 140 (140.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@localhost ~]# cd /etc/sysconfig/network-scripts/
+[root@localhost network-scripts]# vim ifcfg-bondmaster
+DEVICE=bondmaster
+BONDING_OPTS="miimon=1 updelay=0 downdelay=0 mode=active-backup" TYPE=Bond
+BONDING_MASTER=yes
+BOOTPROTO=none
+IPADDR=192.168.87.11
+DEFROUTE=yes
+NAME=bond0
+ONBOOT=yes
+[root@localhost network-scripts]# vim ifcfg-enp0s9
+TYPE=Ethernet
+NAME=enp0s9
+DEVICE=enp0s9
+ONBOOT=yes
+MASTER=bondmaster
+SLAVE=yes
+[root@localhost network-scripts]# vim ifcfg-enp0s10
+TYPE=Ethernet
+NAME=enp0s10
+DEVICE=enp0s10
+ONBOOT=yes
+MASTER=bondmaster
+SLAVE=yes
+ [root@localhost ~]# systemctl restart network
+[root@localhost ~]# ifup ifcfg-bondmaster
+[root@localhost ~]# ifconfig
+bondmaster: flags=5187<UP,BROADCAST,RUNNING,MASTER,MULTICAST>  mtu 1500
+        inet 192.168.87.11  netmask 255.255.255.0  broadcast 192.168.87.255
+        inet6 2402:8100:31bc:a24c:a00:27ff:fe01:92ed  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::a00:27ff:fe01:92ed  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:01:92:ed  txqueuelen 1000  (Ethernet)
+        RX packets 24  bytes 2400 (2.3 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 12  bytes 990 (990.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        ether 08:00:27:8f:11:99  txqueuelen 1000  (Ethernet)
+        RX packets 70  bytes 7880 (7.6 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.87.11  netmask 255.255.255.0  broadcast 192.168.87.255
+        inet6 fe80::228d:1c59:5a85:64a  prefixlen 64  scopeid 0x20<link>
+        inet6 2402:8100:31bc:a24c:d3ad:6647:562d:258c  prefixlen 64  scopeid 0x0<global>
+        ether 08:00:27:6a:ae:c4  txqueuelen 1000  (Ethernet)
+        RX packets 1472  bytes 127254 (124.2 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 863  bytes 98612 (96.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s9: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500
+        ether 08:00:27:01:92:ed  txqueuelen 1000  (Ethernet)           -----(slave ip will get umasked)
+        RX packets 71  bytes 7272 (7.1 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 34  bytes 3858 (3.7 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s10: flags=6211<UP,BROADCAST,RUNNING,SLAVE,MULTICAST>  mtu 1500
+        ether 08:00:27:01:92:ed  txqueuelen 1000  (Ethernet)             -----(slave ip will get umasked)
+        RX packets 103  bytes 10734 (10.4 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 44  bytes 4448 (4.3 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 2  bytes 140 (140.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2  bytes 140 (140.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+[root@localhost ~]# ifdown ifcfg-bondmaster
+Device 'bondmaster' successfully disconnected.      ------(to disconnect the bond from the session, if you are on the     
+                                                                                                     same Ip of bond so it will not consider the current session  							on the basis of bond)
+[root@localhost ~]# cat /proc/net/bonding/bondmaster
+Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+
+Bonding Mode: load balancing (round-robin)
+MII Status: up
+MII Polling Interval (ms): 100
+Up Delay (ms): 0
+Down Delay (ms): 0
+
+Slave Interface: enp0s10
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 08:00:27:01:92:ed
+Slave queue ID: 0
+
+Slave Interface: enp0s9
+MII Status: up
+Speed: 1000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 08:00:27:2e:52:a5
+Slave queue ID: 0
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+31. RAID and Software Configuration
+- Demonstrate different types of RAID
+- Configure software RAID 0, 1, 5, and 6 in Linux
+
+Ans:
+[root@localhost ~]# yum install mdadm -y
+
+------------------RAID 0------------------
+(To create RAID 0 we need minimum 2 raw disk )
+
+[root@localhost ~]# fdisk /dev/sde
+Command (m for help): n
+Command (m for help): p
+Command (m for help): t
+Hex code (type L to list all codes): fd
+Changed type of partition 'Linux' to 'Linux raid autodetect'
+Command (m for help): p
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sde1            2048     2097151     1047552   fd  Linux raid autodetect
+
+Command (m for help):w
+
+[root@localhost ~]# fdisk /dev/sdf
+Command (m for help): n
+Command (m for help): p
+Command (m for help): t
+Hex code (type L to list all codes): fd
+Changed type of partition 'Linux' to 'Linux raid autodetect'
+Command (m for help): p
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdf1            2048     2097151     1047552   fd  Linux raid autodetect
+
+Command (m for help): w
+
+[root@localhost ~]# mdadm --create /dev/md0 --level=0 --raid-devices=2 /dev/sde /dev/sdf
+mdadm: partition table exists on /dev/sde
+mdadm: partition table exists on /dev/sde but will be lost or
+       meaningless after creating array
+mdadm: partition table exists on /dev/sdf
+mdadm: partition table exists on /dev/sdf but will be lost or
+       meaningless after creating array
+Continue creating array? y
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md0 started.
+[root@localhost ~]# cat /proc/mdstat
+Personalities : [raid0]
+md0 : active raid0 sdf[1] sde[0]
+      2093056 blocks super 1.2 512k chunks
+[root@localhost ~]# mkfs.xfs /dev/md0
+meta-data=/dev/md0               isize=512    agcount=8, agsize=65408 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=523264, imaxpct=25
+         =                       sunit=128    swidth=256 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=8 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+
+[root@localhost ~]# mkdir /mnt/raid0
+[root@localhost ~]# mount /dev/md0 /mnt/raid0/
+[root@localhost ~]# lsblk -f /dev/md0
+NAME FSTYPE LABEL UUID                                 MOUNTPOINT
+md0  xfs          75fb4945-dc12-4328-a19a-343ef9664c48 /mnt/raid0
+[root@localhost etc]# vim /etc/fstab
+/dev/md0                                  /mnt/raid0              xfs     defaults        0 0
+
+[root@localhost etc]# mount -a
+[root@localhost ~]# mdadm -E -s -v > /etc/mdadm.conf         -----(saving configuration of raid in file)
+
+------------RAID 1------------
+(To create RAID 0 we need minimum 2 raw disk )
+
+(Do the same task of ‘fdisk’ for all 2 partition as given in RAID 0)
+
+[root@localhost ~]# mdadm --create /dev/md1 --level=1 --raid-devices=2 /dev/sdg /dev/sdh
+mdadm: partition table exists on /dev/sdg
+mdadm: partition table exists on /dev/sdg but will be lost or
+       meaningless after creating array
+mdadm: Note: this array has metadata at the start and
+    may not be suitable as a boot device.  If you plan to
+    store '/boot' on this device please ensure that
+    your boot-loader understands md/v1.x metadata, or use
+    --metadata=0.90
+mdadm: partition table exists on /dev/sdh
+mdadm: partition table exists on /dev/sdh but will be lost or
+       meaningless after creating array
+Continue creating array? y
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md1 started.
+[root@localhost ~]# cat /proc/mdstat
+Personalities : [raid0] [raid1]
+md1 : active raid1 sdh[1] sdg[0]
+      1046528 blocks super 1.2 [2/2] [UU]
+      [==>..................]  resync = 12.9% (136064/1046528) finish=0.6min speed=22677K/sec
+
+[root@localhost ~]# mkfs.xfs /dev/md1
+meta-data=/dev/md1               isize=512    agcount=4, agsize=65408 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=261632, imaxpct=25
+         =                       sunit=0      swidth=0 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=855, version=2
+         =                       sectsz=512   sunit=0 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+[root@localhost ~]# mkdir /mnt/raid1
+[root@localhost ~]# mount /dev/md1 /mnt/raid1
+[root@localhost ~]# lsblk -f /dev/md1
+NAME FSTYPE LABEL UUID                                 MOUNTPOINT
+md1  xfs          9aecd22c-7431-4b27-9a0e-f256c9013e2d /mnt/raid1
+
+[root@localhost ~]# vim /etc/fstab
+/dev/md1                                  /mnt/raid1              xfs     defaults        0 0
+
+[root@localhost ~]# mount -a
+[root@localhost ~]# mdadm -E -s -v > /etc/mdadm.conf         -----(saving configuration of raid in file)
+
+--------------------------RAID 5--------------------------
+(To create RAID 0 we need 3 three raw disk )
+
+(Do the same task of ‘fdisk’ for all 3 partition as given in RAID 0)
+
+[root@localhost ~]# mdadm --create /dev/md2 --level=5 --raid-devices=3 /dev/sdi /dev/sdj /dev/sdk
+mdadm: partition table exists on /dev/sdi
+mdadm: partition table exists on /dev/sdi but will be lost or
+       meaningless after creating array
+mdadm: partition table exists on /dev/sdj
+mdadm: partition table exists on /dev/sdj but will be lost or
+       meaningless after creating array
+mdadm: partition table exists on /dev/sdk
+mdadm: partition table exists on /dev/sdk but will be lost or
+       meaningless after creating array
+Continue creating array? y
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md2 started.
+[root@localhost ~]# cat /proc/mdstat
+Personalities : [raid0] [raid1] [raid6] [raid5] [raid4]
+md2 : active raid5 sdk[3] sdj[1] sdi[0]
+      2093056 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/2] [UU_]
+      [=>...................]  recovery =  6.7% (71424/1046528) finish=1.1min speed=14284K/sec
+[root@localhost ~]# mkfs.xfs /dev/md2
+meta-data=/dev/md2               isize=512    agcount=8, agsize=65408 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=523264, imaxpct=25
+         =                       sunit=128    swidth=256 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=8 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+[root@localhost ~]# mkdir /mnt/raid5
+[root@localhost ~]# mount /dev/md2 /mnt/raid5
+[root@localhost ~]# lsblk -f /dev/md2
+NAME FSTYPE LABEL UUID                                 MOUNTPOINT
+md2  xfs          0cd8a401-a4ca-4f93-8b75-2cc14c8d1273 /mnt/raid5
+[root@localhost ~]# vim /etc/fstab
+/dev/md2                                  /mnt/raid5              xfs     defaults        0 0
+[root@localhost ~]# mount -a
+[root@localhost ~]# mdadm -E -s -v > /etc/mdadm.conf         -----(saving configuration of raid in file)
+
+---------------RAID 6----------------
+(To create RAID 0 we need minimum 4 raw disk )
+
+(Do the same task of ‘fdisk’ for all 4 partition as given in RAID 0)
+
+[root@localhost ~]# mdadm --create /dev/md4 --level=6 --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
+mdadm: partition table exists on /dev/sdc
+mdadm: partition table exists on /dev/sdc but will be lost or
+       meaningless after creating array
+mdadm: partition table exists on /dev/sdd
+mdadm: partition table exists on /dev/sdd but will be lost or
+       meaningless after creating array
+mdadm: partition table exists on /dev/sde
+mdadm: partition table exists on /dev/sde but will be lost or
+       meaningless after creating array
+mdadm: partition table exists on /dev/sdf
+mdadm: partition table exists on /dev/sdf but will be lost or
+       meaningless after creating array
+Continue creating array? y
+mdadm: Defaulting to version 1.2 metadata
+mdadm: array /dev/md4 started.
+[root@localhost ~]# mkfs.xfs /dev/md4
+meta-data=/dev/md4               isize=512    agcount=8, agsize=65408 blks
+         =                       sectsz=512   attr=2, projid32bit=1
+         =                       crc=1        finobt=0, sparse=0
+data     =                       bsize=4096   blocks=523264, imaxpct=25
+         =                       sunit=128    swidth=256 blks
+naming   =version 2              bsize=4096   ascii-ci=0 ftype=1
+log      =internal log           bsize=4096   blocks=2560, version=2
+         =                       sectsz=512   sunit=8 blks, lazy-count=1
+realtime =none                   extsz=4096   blocks=0, rtextents=0
+[root@localhost ~]# mkdir /mnt/raid6
+[root@localhost ~]# mount /dev/md4 /mnt/raid6/
+[root@localhost ~]# lsblk -f /dev/md4
+NAME FSTYPE LABEL UUID                                 MOUNTPOINT
+md4  xfs          7cdaecf6-6484-46a9-98d1-cea45d637b9a /mnt/raid6
+[root@localhost ~]# vim /etc/fstab
+/dev/md4                /mnt/raid6              xfs     defaults        0 0
+
+[root@localhost ~]# mount -a
+[root@localhost ~]# mdadm -E -s -v > /etc/mdadm.conf         -----(saving configuration of raid in file)
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+32. Advanced File Manipulation Commands
+- Demonstrate advanced file manipulation commands
+- Examples include ln, find, and locate
+Ans:
+
+mkdir (to create directory)
+[root@localhost ~]# mkdir demo
+[root@localhost ~]# ll
+drwxr-xr-x. 2 root root    6 Dec  7 15:47 demo
+
+touch (to create a file)
+[root@localhost demo]# touch abc
+[root@localhost demo]# ll
+total 0
+-rw-r--r--. 1 root root 0 Dec  7 15:50 abc
+
+vi / vim (to create and edit the content of the file)
+[root@localhost demo]# vim pqr
+
+cat (to display content of the file)
+[root@localhost demo]# cat pqr
+Hello world
+
+rm -rf (to delete the file)
+[root@localhost demo]# ll
+total 4
+-rw-r--r--. 1 root root  0 Dec  7 15:50 abc
+-rw-r--r--. 1 root root 12 Dec  7 15:51 pqr
+[root@localhost demo]# rm -rf abc
+[root@localhost demo]# ll
+total 4
+-rw-r--r--. 1 root root 12 Dec  7 15:51 pqr
+
+rmdir (to remove directory)
+[root@localhost ~]# ll
+total 8
+-rw-------. 1 root root 1849 Nov  6 13:36 anaconda-ks.cfg
+drwxr-xr-x. 2 root root    6 Dec  7 15:58 demo
+-r--------. 1 root root 1675 Nov 27 15:26 user.pem
+[root@localhost ~]# rmdir demo/
+[root@localhost ~]# ll
+total 8
+-rw-------. 1 root root 1849 Nov  6 13:36 anaconda-ks.cfg
+-r--------. 1 root root 1675 Nov 27 15:26 user.pem
+
+ln -s ( to create symlink)
+[root@localhost ~]# ln -s abc symlink
+[root@localhost ~]# ll
+total 16
+-rw-r--r--. 1 root root  601 Dec  7 16:31 abc
+-rw-------. 1 root root 1685 Nov 23 13:11 anaconda-ks.cfg
+-rw-r--r--. 1 root root  164 Nov 24 18:25 port-numbers
+-rwxr-xr-x. 1 root root  262 Nov 24 18:27 ports.sh
+-rw-r--r--. 1 root root    0 Dec  7 16:22 pqr
+lrwxrwxrwx. 1 root root    3 Dec  7 16:48 symlink -> abc
+ 
+ln ( to create hardlink)
+[root@localhost ~]# touch hope
+[root@localhost ~]# ln hope hardlink
+[root@localhost ~]# ll -i
+total 8
+667225 -rw-------. 1 root root 1849 Nov  6 13:36 anaconda-ks.cfg
+ 19191 -rw-r--r--. 2 root root    0 Dec  7 17:25 hardlink
+ 19191 -rw-r--r--. 2 root root    0 Dec  7 17:25 hope
+ 19193 -r--------. 1 root root 1675 Nov 27 15:26 user.pem
+
+find 
+[root@localhost ~]# find /var -name repos
+/var/lib/yum/repos
+/var/www/html/repos
+
+[root@localhost ~]# find /var -type f -mtime -1 -name *.txt
+/var/cache/yum/x86_64/7/base/mirrorlist.txt
+/var/cache/yum/x86_64/7/extras/mirrorlist.txt
+/var/cache/yum/x86_64/7/updates/mirrorlist.txt
+
+locate
+[root@localhost ~]# locate  *.jpg
+/usr/share/backgrounds/day.jpg
+/usr/share/backgrounds/default.jpg
+/usr/share/backgrounds/morning.jpg
+/usr/share/backgrounds/night.jpg
+/usr/share/kde4/apps/ksplash/Themes/CentOS7/2560x1600/background.jpg
+/usr/share/wallpapers/CentOS7/contents/images/2560x1600.jpg
+
+[root@localhost ~]# locate -i base | head
+/etc/httpd/conf.modules.d/00-base.conf
+/etc/selinux/targeted/active/modules/100/base
+/etc/selinux/targeted/active/modules/100/base/cil
+/etc/selinux/targeted/active/modules/100/base/hll
+/etc/selinux/targeted/active/modules/100/base/lang_ext
+/etc/yum.repos.d/CentOS-Base.repo
+/usr/bin/base64
+/usr/bin/basename
+/usr/bin/update-mime-database
+/usr/lib/dracut/modules.d/99base
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+33. DNS Bind Server Setup
+- Set up a local DNS Bind server
+- Use this machine as your nameserver
+- Use Linux dig and nslookup commands to check DNS queries for authoritative and nonauthoritative sources
+Ans:
+
+[root@localhost ~]# yum install bind bind-utils
+
+-----------Forward zone setup:----------------
+[root@localhost ~]# vim /etc/named.conf
+options {
+        listen-on port 53 { 127.0.0.1; 192.168.0.119; 	-----(edit the server ip )
+        listen-on-v6 port 53 { ::1; };
+        directory       "/var/named"; 
+        dump-file       "/var/named/data/cache_dump.db";
+        statistics-file "/var/named/data/named_stats.txt";
+        memstatistics-file "/var/named/data/named_mem_stats.txt";
+        recursing-file  "/var/named/data/named.recursing";
+        secroots-file   "/var/named/data/named.secroots";
+        allow-query     { localhost; 192.168.0.0/24; };
+
+
+zone "kamran.com" {				       ------(put this entry for forward zone file)
+    type master;
+    file "/var/named/kamran.com"; # zone file path
+};
+
+
+[root@localhost ~]# vim /var/named/kamran.com
+
+$TTL    86400 ; 24 hours could have been written as 24h or 1d
+; $TTL used for all RRs without explicit TTL value
+$ORIGIN kamran.com.
+@  1D  IN  SOA ns1.kamran.com. hostmaster.kamran.com. (
+                              2002022401 ; serial
+                              3H ; refresh
+                              15 ; retry
+                              1w ; expire
+                              3h ; nxdomain ttl
+                             )
+       IN  NS     ns1.kamran.com. ; in the domain
+; server host definitions
+ns1    IN  A      192.168.0.119  ;name server definition
+www    IN  A      192.168.0.119  ;web server definition
+ftp    IN  CNAME  www.kamran.com.  ;ftp server definition
+
+[root@localhost named]# vim /etc/resolv.conf
+
+# Generated by NetworkManager
+#nameserver 192.168.0.1
+nameserver 192.168.0.119		------(put your server ip to make it local dns server)
+
+[root@localhost named]# nslookup www.kamran.com
+Server:         192.168.0.119
+Address:        192.168.0.119#53
+
+Name:   www.kamran.com
+Address: 192.168.0.119
+
+[root@localhost named]# dig www.kamran.com
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.15 <<>> www.kamran.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38539
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;www.kamran.com.                        IN      A
+
+;; ANSWER SECTION:
+www.kamran.com.         86400   IN      A       192.168.0.119
+
+;; AUTHORITY SECTION:
+kamran.com.             86400   IN      NS      ns1.kamran.com.
+
+;; ADDITIONAL SECTION:
+ns1.kamran.com.         86400   IN      A       192.168.0.119
+
+;; Query time: 0 msec
+;; SERVER: 192.168.0.119#53(192.168.0.119)
+;; WHEN: Mon Dec 11 15:39:54 IST 2023
+;; MSG SIZE  rcvd: 93
+
+-----------Reverse Zone setup------------
+
+[root@localhost ~]# vim /etc/named.conf
+
+zone "168.192.in-addr.arpa" { 			-----(enter this configuration under the forward zone configuration)
+    type master;
+    file "/var/named/db.192.168";
+};
+
+[root@localhost ~]# vim /var/named/ db.192.168
+
+$TTL    604800
+@       IN      SOA     ns1.kamran.com. hostmaster.kamran.com. (
+                              3         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                         604800 )       ; Negative Cache TTL
+; name servers
+      IN      NS      ns1.kamran.com.
+
+; PTR Records
+119.0   IN      PTR     ns1.kamran.com.    ; 192.168.0.119
+119.0   IN      PTR     host1.kamran.com.  ; 192.168.0.119
+
+[root@localhost named]# dig -x 192.168.0.119
+
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.15 <<>> -x 192.168.0.119
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 9841
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 1, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;119.0.168.192.in-addr.arpa.    IN      PTR
+
+;; ANSWER SECTION:
+119.0.168.192.in-addr.arpa. 604800 IN   PTR     ns1.kamran.com.
+119.0.168.192.in-addr.arpa. 604800 IN   PTR     host1.kamran.com.
+
+;; AUTHORITY SECTION:
+168.192.in-addr.arpa.   604800  IN      NS      ns1.kamran.com.
+
+;; ADDITIONAL SECTION:
+ns1.kamran.com.         86400   IN      A       192.168.0.119
+
+;; Query time: 0 msec
+;; SERVER: 192.168.0.128#53(192.168.0.119)
+;; WHEN: Mon Dec 11 18:01:32 IST 2023
+;; MSG SIZE  rcvd: 133
+
+[root@localhost named]# nslookup 192.168.0.119
+119.0.168.192.in-addr.arpa      name = ns1.kamran.com.
+119.0.168.192.in-addr.arpa      name = host1.kamran.com.
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+34. Mail Server Setup
+- Set up a basic mail server using Postfix and Dovecot on a non-DNS Linux host
+- Set up mail exchange record in DNS zone file
+- Use host02.cloudethix.com as domain name
+Ans:
+
+-------Postfix mail setup ------
+[root@localhost ~]# hostnamectl set-hostname kamran.local
+[root@localhost ~]# vim /etc/hosts
+
+192.168.0.144   kamran.local
+
+[root@localhost ~]# setenforce 0
+[root@localhost ~]# getenforce
+Permissive
+
+[root@localhost ~]# yum install epel-release -y
+[root@localhost ~]# firewall-cmd --permanent --add-port=80/tcp
+^[[Asuccess
+[root@localhost ~]# firewall-cmd --reload
+success
+[root@localhost ~]# yum install postfix -y
+
+[root@localhost ~]# vim /etc/postfix/main.cf
+
+Line no 77 - Uncomment and set your mail server FQDN ##
+myhostname = kamran.local
+
+Line 85 - Uncomment and Set domain name ##
+mydomain = kamran.local
+
+Line 101 - Uncomment ##
+myorigin = $mydomain
+
+Line 115 - Uncomment and Set ipv4 ##
+inet_interfaces = all
+
+Line 121 - Change to all ##
+inet_protocols = all
+
+Line 166 - Comment ##
+#mydestination = $myhostname, localhost.$mydomain, localhost,
+
+Line 167 - Uncomment ##
+mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
+
+Line 266 - Uncomment and add IP range ##
+mynetworks = 192.168.0.0/24, 127.0.0.0/8
+
+Line 421 - Uncomment ##
+home_mailbox = Maildir/
+
+
+[root@localhost ~]# systemctl restart postfix
+[root@localhost ~]# systemctl enable  postfix
+[root@localhost ~]# yum install telnet -y
+
+[root@localhost ~]# telnet localhost smtp
+Trying ::1...
+Connected to localhost.
+Escape character is '^]'.
+220 host.domain.tld ESMTP Postfix
+ehlo localhost
+250-host.domain.tld
+250-PIPELINING
+250-SIZE 10240000
+250-VRFY
+250-ETRN
+250-ENHANCEDSTATUSCODES
+250-8BITMIME
+250 DSN
+mail from:root
+250 2.1.0 Ok
+rcpt to:shaikh
+250 2.1.5 Ok
+data
+354 End data with <CR><LF>.<CR><LF>
+
+hello kamran
+
+.
+250 2.0.0 Ok: queued as 851E41B3
+quit
+221 2.0.0 Bye
+Connection closed by foreign host.
+
+[root@localhost ~]# cat /home/shaikh/Maildir/new/1702376814.Vfd02I205081M479921.kamran.local
+Return-Path: <root@kamran.local>
+X-Original-To: shaikh
+Delivered-To: shaikh@kamran.local
+Received: from localhost (localhost [IPv6:::1])
+        by host.domain.tld (Postfix) with ESMTP id 851E41B3
+        for <shaikh>; Tue, 12 Dec 2023 15:56:11 +0530 (IST)
+Message-Id: <20231212102629.851E41B3@host.domain.tld>
+Date: Tue, 12 Dec 2023 15:56:11 +0530 (IST)
+From: root@kamran.local
+
+hello kamran
+
+
+------------Dovecot mail setup-------------
+
+[root@kamran ~]# yum install dovecot -y
+[root@kamran ~]# vi /etc/dovecot/dovecot.conf
+
+protocols = imap pop3 lmtp			-------(unhash this comment)
+listen = *, ::
+
+[root@kamran ~]# vi /etc/dovecot/conf.d/10-mail.conf
+
+mail_location = maildir:~/Maildir		-------(Check this entry )
+
+[root@kamran ~]# vi /etc/dovecot/conf.d/10-master.conf
+  unix_listener /var/spool/postfix/private/auth {
+    mode = 0666
+    user = postfix
+    group = postfix
+  }
+
+[root@kamran ~]# vi /etc/dovecot/conf.d/10-ssl.conf
+ssl = yes
+ssl_cert =
+
+[root@kamran ~]# systemctl enable dovecot
+[root@kamran ~]# systemctl start dovecot
+[root@kamran ~]# systemctl status dovecot
+● dovecot.service - Dovecot IMAP/POP3 email server
+   Loaded: loaded (/usr/lib/systemd/system/dovecot.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2023-12-15 19:41:58 IST; 3min 5s ago
+     Docs: man:dovecot(1)
+           http://wiki2.dovecot.org/
+  Process: 1233 ExecStart=/usr/sbin/dovecot (code=exited, status=0/SUCCESS)
+  Process: 1220 ExecStartPre=/usr/sbin/portrelease dovecot (code=exited, status=0/SUCCESS)
+  Process: 1187 ExecStartPre=/usr/libexec/dovecot/prestartscript (code=exited, status=0/SUCCESS)
+ Main PID: 1285 (dovecot)
+   CGroup: /system.slice/dovecot.service
+           ├─1285 /usr/sbin/dovecot
+           ├─1296 dovecot/anvil
+           ├─1297 dovecot/log
+           └─1301 dovecot/config
+
+Dec 15 19:41:52 kamran.local systemd[1]: Starting Dovecot IMAP/POP3 email server...
+Dec 15 19:41:58 kamran.local dovecot[1285]: master: Dovecot v2.2.36 (1f10bfa63) starting up for imap, pop3, lmtp (core dumps disabled)
+Dec 15 19:41:58 kamran.local systemd[1]: Can't open PID file /var/run/dovecot/master.pid (yet?) after start: No such file or directory
+Dec 15 19:41:58 kamran.local systemd[1]: Started Dovecot IMAP/POP3 email server.
+
+[root@kamran ~]# telnet localhost pop3
+Trying ::1...
+Connected to localhost.
+Escape character is '^]'.
++OK Dovecot ready.
+user shaikh
++OK
+pass root
++OK Logged in.
+retr 1
++OK 392 octets
+Return-Path: <root@kamran.local>
+X-Original-To: shaikh
+Delivered-To: shaikh@kamran.local
+Received: from localhost (localhost [IPv6:::1])
+        by host.domain.tld (Postfix) with ESMTP id 851E41B3
+        for <shaikh>; Tue, 12 Dec 2023 15:56:11 +0530 (IST)
+Message-Id: <20231212102629.851E41B3@host.domain.tld>
+Date: Tue, 12 Dec 2023 15:56:11 +0530 (IST)
+From: root@kamran.local
+
+hello kamran
+
+.
+quit
++OK Logging out.
+Connection closed by foreign host. 
+
+----------Mail exchange record in DNS file------------
+
+[root@localhost ~]# vim /etc/named.conf	------(here we are setting mail server on different machine)
+zone "host02.cloudethix.com" {
+    type master;
+    file "/var/named/host02.cloudethix.com";
+    allow-update { none; };
+};
+[root@localhost ~]# vim /var/named/host02.cloudethix.com
+$TTL    86400 ; 24 hours could have been written as 24h or 1d
+; $TTL used for all RRs without explicit TTL value
+$ORIGIN host02.cloudethix.com.
+@  1D  IN  SOA ns1.host02.cloudethix.com. hostmaster.host02.cloudethix.com. (
+                              2002022401 ; serial
+                              3H ; refresh
+                              15 ; retry
+                              1w ; expire
+                              3h ; nxdomain ttl
+                             )
+       IN  NS         ns1.host02.cloudethix.com. ; in the domain
+       IN  MX     10  mail.host02.cloudethix.com. ;
+; server host definitions
+ns1    IN  A      192.168.159.59  ;name server definition
+mail   IN  A      192.168.159.11  ;
+www    IN  A      192.168.159.59  ;web server definition
+ftp    IN  CNAME  www.host02.cloudethix.com.  ;ftp server definition
+
+[root@localhost ~]# systemctl restart named
+[root@localhost ~]# vim /etc/resolv.conf
+# Generated by NetworkManager
+#nameserver 192.168.0.1
+nameserver 192.168.159.59
+
+[root@localhost ~]# dig MX host02.cloudethix.com
+; <<>> DiG 9.11.4-P2-RedHat-9.11.4-26.P2.el7_9.15 <<>> MX host02.cloudethix.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 36846
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 1, ADDITIONAL: 3
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;host02.cloudethix.com.         IN      MX
+
+;; ANSWER SECTION:
+host02.cloudethix.com.  86400   IN      MX      10 mail.host02.cloudethix.com.
+
+;; AUTHORITY SECTION:
+host02.cloudethix.com.  86400   IN      NS      ns1.host02.cloudethix.com.
+
+;; ADDITIONAL SECTION:
+mail.host02.cloudethix.com. 86400 IN    A       192.168.159.11	----(here you can see mail server is on different ip)
+ns1.host02.cloudethix.com. 86400 IN     A       192.168.159.59
+
+;; Query time: 20 msec
+;; SERVER: 192.168.159.59#53(192.168.159.59)
+;; WHEN: Sun Dec 17 12:35:16 IST 2023
+;; MSG SIZE  rcvd: 121
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+35. Backup and Restore
+- Demonstrate key differences between full, incremental, and differential backups using rsync command
+- Take MBR disk image backups using dd command
+- Configure tar , gzip , and bzip2 commands and schedule them in a daily schedule
+- Configure remote backups using scp or rsync with SSH for secure remote backups
+Ans:
+
+---------Full backup------------
+[root@localhost server]# rsync -avi mon/ /opt/fullbkp/
+sending incremental file list
+created directory /opt/fullbkp
+cd+++++++++ ./
+>f+++++++++ file1
+>f+++++++++ file2
+>f+++++++++ file3
+>f+++++++++ file4
+>f+++++++++ file5
+>f+++++++++ file6
+
+sent 374 bytes  received 168 bytes  1,084.00 bytes/sec
+total size is 0  speedup is 0.00
+[root@localhost server]# ll /opt/
+total 0
+drwxr-xr-x 2 root root 84 Dec 17 15:58 fullbkp
+[root@localhost server]# ll /opt/fullbkp/
+total 0
+-rw-r--r-- 1 root root 0 Dec 17 15:52 file1
+-rw-r--r-- 1 root root 0 Dec 17 15:52 file2
+-rw-r--r-- 1 root root 0 Dec 17 15:52 file3
+-rw-r--r-- 1 root root 0 Dec 17 15:52 file4
+-rw-r--r-- 1 root root 0 Dec 17 15:52 file5
+-rw-r--r-- 1 root root 0 Dec 17 15:58 file6
+
+-------------Incremental backup--------------
+[root@localhost mon]# touch file77
+
+[root@localhost server]# rsync -avi --link-dest=/opt/fullbkp/ mon/ /opt/incbkp_$(date +%Y-%m-%d)/
+sending incremental file list
+.d..t...... ./
+>f+++++++++ file77
+
+sent 197 bytes  received 38 bytes  470.00 bytes/sec
+total size is 0  speedup is 0.00
+[root@localhost server]# cd /opt/
+[root@localhost opt]# ll
+total 0
+drwxr-xr-x 2 root root 84 Dec 17 15:58 fullbkp
+drwxr-xr-x 2 root root 98 Dec 17 16:15 incbkp_2023-12-17
+[root@localhost opt]# cd incbkp_2023-12-17/
+[root@localhost incbkp_2023-12-17]# ll
+total 0
+-rw-r--r-- 2 root root 0 Dec 17 15:52 file1
+-rw-r--r-- 2 root root 0 Dec 17 15:52 file2
+-rw-r--r-- 2 root root 0 Dec 17 15:52 file3
+-rw-r--r-- 2 root root 0 Dec 17 15:52 file4
+-rw-r--r-- 2 root root 0 Dec 17 15:52 file5
+-rw-r--r-- 2 root root 0 Dec 17 15:58 file6
+-rw-r--r-- 1 root root 0 Dec 17 16:15 file77
+
+---------Differential backup-------
+[root@localhost mon]# touch file99
+
+[root@localhost server]# rsync -avi --backup --backup-dir=/opt/diffbkp_$(date +%Y/%m/%d)/ --link-dest=/opt/fullbkp/ mon/ /opt/diffbkp/
+sending incremental file list
+created directory /opt/diffbkp
+cd..t...... ./
+>f+++++++++ file77
+>f+++++++++ file99
+
+sent 254 bytes  received 92 bytes  692.00 bytes/sec
+total size is 0  speedup is 0.00
+[root@localhost server]# cd /opt/
+[root@localhost opt]# ll
+total 0
+drwxr-xr-x 2 root root 112 Dec 17 16:25 diffbkp
+drwxr-xr-x 2 root root  84 Dec 17 15:58 fullbkp
+drwxr-xr-x 2 root root  98 Dec 17 16:15 incbkp_2023-12-17
+[root@localhost opt]# cd diffbkp/
+[root@localhost diffbkp]# ll
+total 0
+-rw-r--r-- 3 root root 0 Dec 17 15:52 file1
+-rw-r--r-- 3 root root 0 Dec 17 15:52 file2
+-rw-r--r-- 3 root root 0 Dec 17 15:52 file3
+-rw-r--r-- 3 root root 0 Dec 17 15:52 file4
+-rw-r--r-- 3 root root 0 Dec 17 15:52 file5
+-rw-r--r-- 3 root root 0 Dec 17 15:58 file6
+-rw-r--r-- 1 root root 0 Dec 17 16:15 file77
+-rw-r--r-- 1 root root 0 Dec 17 16:25 file99
+
+---------------MBR disk image backup-------------
+
+[root@localhost ~]# dd if=/dev/sdb of=/mnt/mbr_backup.img bs=512 count=1
+1+0 records in
+1+0 records out
+512 bytes (512 B) copied, 0.0486605 s, 10.5 kB/s
+[root@localhost ~]# cd /mnt/
+[root@localhost mnt]# ll
+total 4
+-rw-r--r--  1 root root 512 Dec 17 16:34 mbr_backup.img
+drwxr-xr-x. 2 root root   6 Dec  8 13:52 nfs-client
+[root@localhost mnt]# cat mbr_backup.img
+p▒▒▒ !▒5@5q▒K▒                                                                                                                                                    @@K▒
+▒`▒@`▒▒▒?U▒[root@localhost mnt]# xterm-256colorxterm-256colorxterm-256color
+
+
+---------Backup from compression techniques and scheduling it------------
+[root@localhost ~]# ll
+total 4
+-rw-------. 1 root root 1850 Nov 23 11:46 anaconda-ks.cfg
+drwxr-xr-x  2 root root   19 Dec 18 16:09 new
+drwxr-xr-x  2 root root   71 Dec 18 16:10 new1
+
+[root@localhost ~]# crontab -e
+0 2 * * * tar -cvzf /root/backup.tar.gz /root/new /root/new  	----(we are setting daily schedule to take backup from one path to another)
+ 
+[root@localhost ~]# ll
+total 8
+-rw-------. 1 root root 1850 Nov 23 11:46 anaconda-ks.cfg
+-rw-r--r--  1 root root  185 Dec 18 16:12 backup.tar.gz
+drwxr-xr-x  2 root root   19 Dec 18 16:09 new
+drwxr-xr-x  2 root root   71 Dec 18 16:10 new1
+
+[root@localhost ~]# cat /var/log/cron
+
+Dec 18 16:12:01 localhost CROND[2086]: (root) CMD (tar -cvzf /root/backup.tar.gz /root/new /root/new)
+Dec 18 16:13:02 localhost CROND[2096]: (root) CMD (tar -cvzf /root/backup.tar.gz /root/new /root/new)
+
+------------- Configuring backups using scp or rsync with SSH for secure remote backups-------------
+
+[root@localhost ~]# mkdir /opt/backup
+[root@localhost ~]# ll /opt/backup/
+total 0
+ 
+[root@localhost ~]# ssh-copy-id root@192.168.0.127       ----(here we are authorizing ssh to remote machine)
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/root/.ssh/id_rsa.pub"
+The authenticity of host '192.168.0.127 (192.168.0.127)' can't be established.
+ECDSA key fingerprint is SHA256:/2h9Oh8zx+4NEa2wrBw8e2m+g7ygMtp99cPwH+2fegQ.
+ECDSA key fingerprint is MD5:63:dc:f4:6b:ba:3a:10:87:48:7f:7f:c0:8b:1f:14:62.
+Are you sure you want to continue connecting (yes/no)? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+root@192.168.0.127's password:
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'root@192.168.0.127'"
+and check to make sure that only the key(s) you wanted were added.
+
+[root@localhost ~]# crontab -e
+0 12 * * * scp -pr root@192.168.0.127:/root/vivek.txt /opt/backup/  ----(here we are setting daily schedule for taking backup from different machine)
+
+[root@localhost ~]# ll /opt/backup/
+total 4
+-rw-r--r-- 1 root root 43 Dec  6 10:35 vivek.txt
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+36. MySQL and Postgres
+- Demonstrate MySQL and Postgres by creating multiple databases and tables inside them
+- Take backups of the database, tables, and table schemas only
+- Create multiple database users and allow access to the users on their respective databases from local and remote connections
+- Delete the database and restore it from backup
+- Schedule daily, weekly, and monthly database, table, and table schema full and incremental backups.
+Ans:
+
+=========mysql=========
+-----------------Creating  Database in mysql----------------
+[root@localhost ~]# yum install mariadb -y
+[root@localhost ~]# systemctl start mariadb
+[root@localhost ~]# systemctl enable mariadb
+[root@localhost ~]# mysql_secure_installation
+
+NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
+      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+
+In order to log into MariaDB to secure it, we'll need the current
+password for the root user.  If you've just installed MariaDB, and
+you haven't set the root password yet, the password will be blank,
+so you should just press enter here.
+
+Enter current password for root (enter for none):
+OK, successfully used password, moving on...
+
+Setting the root password ensures that nobody can log into the MariaDB
+root user without the proper authorisation.
+
+Set root password? [Y/n] y
+New password:
+Re-enter new password:
+Password updated successfully!
+Reloading privilege tables..
+ ... Success!
+
+
+By default, a MariaDB installation has an anonymous user, allowing anyone
+to log into MariaDB without having to have a user account created for
+them.  This is intended only for testing, and to make the installation
+go a bit smoother.  You should remove them before moving into a
+production environment.
+
+Remove anonymous users? [Y/n] y
+ ... Success!
+
+Normally, root should only be allowed to connect from 'localhost'.  This
+ensures that someone cannot guess at the root password from the network.
+
+Disallow root login remotely? [Y/n] y
+ ... Success!
+
+By default, MariaDB comes with a database named 'test' that anyone can
+access.  This is also intended only for testing, and should be removed
+before moving into a production environment.
+
+Remove test database and access to it? [Y/n] y
+ - Dropping test database...
+ ... Success!
+ - Removing privileges on test database...
+ ... Success!
+
+Reloading the privilege tables will ensure that all changes made so far
+will take effect immediately.
+
+Reload privilege tables now? [Y/n] y
+ ... Success!
+
+Cleaning up...
+
+All done!  If you've completed all of the above steps, your MariaDB
+installation should now be secure.
+
+Thanks for using MariaDB!
+
+[root@localhost ~]# mysql -u root -p
+Enter password:
+MariaDB [(none)]> CREATE DATABASE mydb1;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> CREATE DATABASE mydb2;
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [(none)]> USE mydb1;
+Database changed
+MariaDB [mydb1]> CREATE TABLE table1 (id INT, name VARCHAR(255));
+Query OK, 0 rows affected (0.12 sec)
+MariaDB [mydb1]> CREATE TABLE table2 (id INT, description TEXT);
+Query OK, 0 rows affected (0.03 sec)
+MariaDB [mydb1]> SHOW TABLES;
++-----------------+
+| Tables_in_mydb1 |
++-----------------+
+| table1          |
+| table2          |
++-----------------+
+2 rows in set (0.00 sec)
+
+MariaDB [(none)]> USE mydb2;
+Database changed
+MariaDB [mydb2]> CREATE TABLE table1 (id INT, name VARCHAR(255));
+Query OK, 0 rows affected (0.04 sec)
+MariaDB [mydb2]> CREATE TABLE table2 (id INT, description TEXT);
+Query OK, 0 rows affected (0.04 sec)
+MariaDB [mydb2]> SHOW TABLES;
++-----------------+
+| Tables_in_mydb2 |
++-----------------+
+| table1          |
+| table2          |
++-----------------+
+2 rows in set (0.00 sec)
+
+MariaDB [mydb2]> exit;
+
+----------------Taking Backup of Database-------------
+[root@localhost ~]# mysqldump -u root -p mydb1 > mydb1_backup.sql
+Enter password:
+[root@localhost ~]# ll
+total 12
+-rw-------. 1 root root 1850 Nov 23 11:46 anaconda-ks.cfg
+-rw-r--r--. 1 root root  185 Dec 18 16:14 backup.tar.gz
+-rw-r--r--. 1 root root 2346 Dec 31 11:46 mydb1_backup.sql
+drwxr-xr-x. 2 root root   19 Dec 18 16:09 new
+drwxr-xr-x. 2 root root   71 Dec 18 16:10 new1
+
+----------------Creating multiple user in mysql-------------
+[root@localhost ~]# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 17
+Server version: 5.5.68-MariaDB MariaDB Server
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE USER 'user1'@'localhost' IDENTIFIED BY 'password1';
+Query OK, 0 rows affected (0.06 sec)
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON mydb1.* TO 'user1'@'localhost';
+Query OK, 0 rows affected (0.00 sec)
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> CREATE USER 'user2'@'%' IDENTIFIED BY 'password2';
+Query OK, 0 rows affected (0.00 sec)
+MariaDB [(none)]> GRANT ALL PRIVILEGES ON mydb2.* TO 'user2'@'%';
+Query OK, 0 rows affected (0.00 sec)
+MariaDB [(none)]> FLUSH PRIVILEGES;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [mydb2]> SELECT user, host FROM mysql.user;
++-------+-----------+
+| user  | host      |
++-------+-----------+
+| user2 | %         |
+| root  | 127.0.0.1 |
+| root  | ::1       |
+| root  | localhost |
+| user1 | localhost |
++-------+-----------+
+5 rows in set (0.00 sec)
+MariaDB [(none)]> exit;
+Bye
+
+--------------Deleting database of mysql and restoring it------------
+MariaDB [mydb1]> DROP DATABASE mydb1;
+Query OK, 2 rows affected (0.14 sec)
+MariaDB [(none)]> exit;
+Bye
+
+[root@localhost ~]# mysql -u root -p -e "CREATE DATABASE mydb1;"
+[root@localhost ~]# mysql -u root -p -e "SHOW DATABASES;"
+Enter password:
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb1              |
+| mydb2              |
+| mysql              |
+| performance_schema |
++--------------------+
+
+[root@localhost ~]# mysql -u root -p mydb1 < mydb1_backup.sql
+Enter password:
+
+------------Automating back up at daily, weekly and monthly basis of databse-----------
+[root@localhost ~]# crontab -e
+0 0 * * * mysqldump -u root -p mydb1 > /mnt/daily_backup.sql
+0 0 * * 0 mysqldump -u root -p mydb1 > /mnt/weekly_backup.sql
+0 0 1 * * mysqldump -u root -p mydb1 > /mnt/monthly_backup.sql
+
+
+=========Postgres=========
+-----------------Creating Database in Postgres----------------
+[root@localhost ~]# yum install postgresql-server -y
+[root@localhost ~]# postgresql-setup initdb
+[root@localhost ~]# systemctl start postgresql
+[root@localhost ~]# systemctl enable postgresql
+[root@localhost ~]# sudo -u postgres psql
+could not change directory to "/root"
+psql (9.2.24)
+Type "help" for help.
+
+postgres=# CREATE DATABASE db1;
+CREATE DATABASE
+postgres=# CREATE DATABASE db2;
+CREATE DATABASE
+postgres=# \c db1
+You are now connected to database "db1" as user "postgres".
+db1=# CREATE TABLE table1 (id serial, name varchar(255));
+NOTICE:  CREATE TABLE will create implicit sequence "table1_id_seq" for serial column "table1.id"
+CREATE TABLE
+db1=# CREATE TABLE table2 (id serial, data text);
+NOTICE:  CREATE TABLE will create implicit sequence "table2_id_seq" for serial column "table2.id"
+CREATE TABLE
+db1=# \c db2
+You are now connected to database "db2" as user "postgres".
+db2=# CREATE TABLE table1 (id serial, name varchar(255));
+NOTICE:  CREATE TABLE will create implicit sequence "table1_id_seq" for serial column "table1.id"
+CREATE TABLE
+db2=# CREATE TABLE table2 (id serial, data text);
+NOTICE:  CREATE TABLE will create implicit sequence "table2_id_seq" for serial column "table2.id"
+CREATE TABLE
+db2=# \q
+postgres=# \l
+                                  List of databases
+   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges
+-----------+----------+----------+-------------+-------------+-----------------------
+ db1       | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ db2       | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |
+ template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+ template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +
+           |          |          |             |             | postgres=CTc/postgres
+(5 rows)
+
+
+
+------------------Taking Backup of Database----------------
+
+postgres=# pg_dumpall > full_backup.sql
+postgres-# pg_dump -s db1 > db1_schema_backup.sql
+postgres-# pg_dump -a db1 > db1_data_backup.sql
+
+----------------Creating multiple user in Postgres-------------
+
+postgres-# CREATE USER user1 WITH PASSWORD 'root'
+postgres-# CREATE USER user2 WITH PASSWORD 'root'
+
+--------------Deleting database of Postgres and restoring it------------
+
+postgres=# DROP DATABASE db1;
+DROP DATABASE
+
+postgres-# CREATE DATABASE new_db;   ---(create new empty database)
+CREATE DATABASE
+postgres-# psql -U postgres -d new_db -f full_backup.sql
+postgres-# psql -U postgres -d new_db -f db1_schema_backup.sql
+postgres-# psql -U postgres -d new_db -f db1_data_backup.sql
+
+------------Automating back up at daily, weekly and monthly basis of databse-----------
+
+[root@localhost ~]# crontab -e
+
+0 12 * * * psql -U postgres -d new_db -f /opt/full_backup.sql
+0 12 * * 7 psql -U postgres -d new_db -f /opt/db1_schema_backup.sql
+0 12 1 * * psql -U postgres -d new_db -f /opt/db1_data_backup.sql
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+37. Linux Server Patching
+- Demonstrate how to patch a Linux server
+- Check security updates and only update security packages
+- Demonstrate the CR process of Linux server patching for vulnerabilities assessment
+Ans:
+
+[root@kamran ~]# yum clean all -v
+[root@kamran ~]# yum --security check-update
+[root@kamran ~]# yum install yum-plugin-security
+[root@kamran ~]# yum --security update
+[root@kamran ~]# yum check-update
+[root@kamran ~]# yum update
+	
+-------------------------------------------------------------------------------------------------------------------------------
